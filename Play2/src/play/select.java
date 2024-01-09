@@ -45,3 +45,6 @@ public class select extends Thread {
 		return select_number;
 	}
 }
+void jkl() {
+	
+}
