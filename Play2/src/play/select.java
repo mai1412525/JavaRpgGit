@@ -48,4 +48,5 @@ public class select extends Thread {
 	}
 }
 void jkl() {
+	int i = 0;
 }
