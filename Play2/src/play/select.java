@@ -4,7 +4,7 @@ package play;
 public class select extends Thread {	
 	String[] moji_join;
 	String title;
-	int test;
+	int come;
     int select_number;//Mainで使う用
     public static int select_final;//Eventに送る用
     public void setSelect(String moji,String title) {//設定
