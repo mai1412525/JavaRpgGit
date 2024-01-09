@@ -5,6 +5,8 @@ public class select extends Thread {
 	String[] moji_join;
 	String title;
 	int mai = 0;
+	int mellow = 1;
+	int raruku = 0;
     int select_number;//Mainで使う用
     public static int select_final;//Eventに送る用
     public void setSelect(String moji,String title) {//設定
