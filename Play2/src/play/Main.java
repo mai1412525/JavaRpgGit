@@ -16,10 +16,10 @@ class TestWindow extends JFrame implements KeyListener {
 
 		//キー入力の有効化
 		addKeyListener(this);
-		sub.syougai();
+		/*sub.syougai();
 		sub.tekiidou();
 		Event.prorogu();  
-		Event.start();
+		Event.start();*/
 	}
 	int Mkirikae = 0;
 	sub sub = new sub();
