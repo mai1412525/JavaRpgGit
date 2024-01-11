@@ -2,31 +2,31 @@ package play;
 
 import java.util.Random;
 
-class Map55 {
+class Map55 extends MapMam{
 	Random rand = new Random();
 	int tate = 10;
 	int yoko = 30;
 	int[][]syougai = new int[tate][yoko];				//マスごとのデータ
 	int[] kuromasu = {5,6,15,4};						//■の座標[縦][横]
-	int[]ki = {3,3,19,3,20,3,18,3};								//木の座標
+	int[]ki = {3,3, 19,3, 20,3, 18,3};								//木の座標
 	int[]zou = {5,15};
-	int[]tobira = {2,syougai[0].length - 1, 3,syougai[0].length - 1};
 	int[]kuti = {-11,3,4, -12,11,12, -13,16,17, -14,24,25, -21,2,3, -31, -41};
 
-	int[]jouhou = {-11,45,-31, -12,45,-32, -13,145,-31, -14,145,-32, -21,56,-41};
-	int[]mituketa = new int [3];
-	boolean han = true;
-	String name = "廊下";
-	MapSyori syori = new MapSyori();
+	int[]jouhou = {-11,2,-31, -12,2,-32, -13,3,-31, -14,3,-32, -21,1,-41};
+	int[]mituketa = new int [3];			//コピペ
+	int[][]ivent = syougai;			//コピペ
+
+	//boolean han = true;			//コピペ
+	String name = "[廊下]";
+	MapSyori syori = new MapSyori();			//コピペ
 
 
-	public int[][] map55(){
-		syori.sotowaku(syougai);
+	public int[][] map(){			//まっぷでーた
+		syori.sotowaku(syougai);	//さいしょに
 		syori.jouh(syougai,ki,2);
 		syori.jouh(syougai,kuromasu,1);
 		syori.jouh(syougai,zou,4);
 		syori.kuti(syougai, kuti);
-		syori.jouh(syougai, tobira, 5);
 
 		return syougai;
 	}
@@ -34,15 +34,18 @@ class Map55 {
 		syori.mapjouhou(id, jouhou, mituketa);
 		return mituketa;
 	}
-	public boolean gethantei() {
-		return han;
-	}
+	//public boolean gethantei() {
+		//return han;
+	//}
 	public String getname() {
 		return name;
 	}
+	public int[][] ivent(){
+		return ivent;
+	}
 }
 
-class Map56 {
+class Map56 extends MapMam {
 
 	int tate = 20;
 	int yoko = 20;
@@ -52,16 +55,22 @@ class Map56 {
 	int[]tukue = {4,4,6,6,8,8,10,10};			//tukue
 	int[]kutisita1 = {3,4};
 	int[]kutisita2 = {11,12};
-	int[]jouhou = {-41,55,-21};
+	int[]jouhou = {-41,0,-21};
 	int[]kutihidari = {3,4};
 
 	int[]kuti = {-11,-21, -31, -41,3,4};
 	int[]mituketa = new int [3];
+	int[][]ivent = syougai;
+	int[][]ana = syougai;
+	{
+	ana[5][6] = 1;
+	}
+
 	boolean han = true;
 	String name = "体育館";
 	MapSyori syori = new MapSyori();
 
-	public int[][] map56(){
+	public int[][] map(){
 		syori.sotowaku(syougai);
 		syori.jouh(syougai, ki,2);
 		syori.jouh(syougai, kuromasu,1);
@@ -80,32 +89,38 @@ class Map56 {
 	public String getname() {
 		return name;
 	}
+	public int[][] ivent(){
+		return ivent;
+	}
+	public int[][] getana(){
+		return ana;
+	}
 }
 
-class Kyousitu1 {
+class Kyousitu1 extends MapMam {
 
 	int tate = 10;
 	int yoko = 15;
 	int[][]syougai = new int[tate][yoko];				//マスごとのデータ
 	int[] kuromasu = {};						//■の座標
 	int[]ki = {};								//木の座標
-	int[]tukukagi = {3,3};
 
 	int[]kuti = {-11, -21, -31,3,4, -32,11,12, -41};
-	int[]jouhou = {-31,55,-11, -32,55,-12};
+	int[]jouhou = {-31,0,-11, -32,0,-12};
 	int[]mituketa = new int [3];
 	int[]tukue = {3,3,3,6,3,9,6,3,6,6,6,9};
+	int[][]ivent = syougai;
+
 	boolean han = false;
 	String name = "1-1";
 	MapSyori syori = new MapSyori();
 
 
-	public int[][] map56(){
+	public int[][]  map(){
 		syori.sotowaku(syougai);
 		syori.jouh(syougai, ki,2);
 		syori.jouh(syougai, kuromasu,1);
 		syori.jouh(syougai, tukue,3);
-		syori.jouh(syougai,tukukagi,6);
 		syori.kuti(syougai,kuti);
 
 		return syougai;
@@ -120,25 +135,31 @@ class Kyousitu1 {
 	public String getname() {
 		return name;
 	}
+	public int[][] ivent(){
+		return ivent;
+	}
 }
 
-class Kyousitu2 {
+class Kyousitu2 extends MapMam {
 
 	int tate = 10;
 	int yoko = 15;
 	int[][]syougai = new int[tate][yoko];				//マスごとのデータ
 	int[] kuromasu = {};						//■の座標
 	int[]ki = {3,3};								//木の座標
+	int[]tukue = {};
 
 	int[]kuti = {-11, -21, -31,3,4, -32,11,12, -41};
-	int[]jouhou = {-31,55,-13, -32,55,-14};
-	int[]tukue = {};
+	int[]jouhou = {-31,0,-13, -32,0,-14};
+
 	int[]mituketa = new int [3];
+	int[][]ivent = syougai;
+
 	boolean han = false;
 	String name = "1-2";
 	MapSyori syori = new MapSyori();
 
-	public int[][] map56(){
+	public int[][]  map(){
 		syori.sotowaku(syougai);
 		syori.jouh(syougai, ki,2);
 		syori.jouh(syougai, kuromasu,1);
@@ -156,6 +177,9 @@ class Kyousitu2 {
 	}
 	public String getname() {
 		return name;
+	}
+	public int[][] ivent(){
+		return ivent;
 	}
 }
 class genkan extends MapMam{
@@ -171,6 +195,33 @@ class genkan extends MapMam{
 			9,21,10,21,11,21,12,21,13,21,14,21,
 			9,24,10,24,11,24,12,24,13,24,14,24
 			};
-	int[]kuti = {-11,1,2,3,4,5,6,7,8};
+	int[]kuti = {-41,1,2,3,4,5,6,7, -21,1,2,3,4,5,6,7, -31,13,14,15,16,17,18};
 
+	int[]jouhou = {};
+	int[]mituketa = new int [3];			//コピペ
+	int[][]ivent = syougai;			//コピペ
+
+	String name = "[玄関]";
+	MapSyori syori = new MapSyori();			//コピペ
+
+	public int[][] map(){
+		syori.sotowaku(syougai);
+		syori.jouh(syougai,kuromasu,1);
+		syori.kuti(syougai, kuti);
+
+		return syougai;
+	}
+	public int[] getmapjouhou(int id) {
+		syori.mapjouhou(id, jouhou, mituketa);
+		return mituketa;
+	}
+
+	public String getname() {
+		return name;
+	}
+	public int[][] ivent(){
+		return ivent;
+	}
 }
+
+class
