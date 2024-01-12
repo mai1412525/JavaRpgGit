@@ -1,7 +1,7 @@
 package play;
-public class Speak extends Thread{
-	static int space=0;
-	int space2;
+public class Speak{
+	boolean keyWait = false;
+	boolean key = false;
 	public void S(String moji, int speed) {
 
 		String[] strArray = new String[moji.length()];
@@ -12,18 +12,29 @@ public class Speak extends Thread{
 			System.out.print(strArray[i]);
 			try {
 				Thread.sleep(speed);
+				keyWait =  false;
 			// speed間だけ処理を止める
 			} catch (InterruptedException e) {
 			}
 		}
-	
+
 		System.out.println("▼");
+		keyWait = true;
+		rp();
 	}
-	public void run() {
-		while(space != 1 && space != 99) {
-			System.out.print("");
+		void rp() {
+			if(keyWait==true) {
+			synchronized(this) {
+				try {
+					wait();
+				} catch (InterruptedException e) {
+			}
+				return;
 		}
+	}
 		
 	}
-	
+	synchronized void preese() {
+		notify();
+	}
 }

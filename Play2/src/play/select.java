@@ -1,12 +1,10 @@
 package play;
 
 
-public class select extends Thread {
+public class select{
 	String[] moji_join;
 	String title;
-	String aaa;
     int select_number;//Mainで使う用
-    public static int select_final;//Eventに送る用
     public void setSelect(String moji,String title) {//設定
     	String[] moji_Split = moji.split(",");
     	String[] moji_join = new String[moji_Split.length*2];
@@ -37,9 +35,6 @@ public class select extends Thread {
 				System.out.println(moji_join[i*2+1]);
 			}
 		}
-	}
-	public void run() {
-
 	}
 	public int getNumber() {
 		return select_number;

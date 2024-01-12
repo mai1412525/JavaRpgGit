@@ -17,14 +17,15 @@ class TestWindow extends JFrame implements KeyListener {
 		//キー入力の有効化
 		addKeyListener(this);
 		/*sub.syougai();
-		sub.tekiidou();
-		Event.prorogu();  
-		Event.start();*/
+		sub.tekiidou();*/
+		Event.prorogu();
+		Event.start();
 	}
 	int Mkirikae = 0;
 	sub sub = new sub();
 	Event Event = new Event();
-	
+	Speak_text speak_text = new Speak_text();
+
 
 
 @Override
@@ -39,7 +40,7 @@ public void keyPressed(KeyEvent e) {
 	// TODO 自動生成されたメソッド・スタブ
 	//0がマップ、1が選択肢、2が会話文
 	Mkirikae = Event.getEvent();
-	System.out.println("今のMain切り替え"+Mkirikae);
+	//System.out.println("今のMain切り替え"+Mkirikae);
 	switch (e.getKeyCode()) {
 	case KeyEvent.VK_UP:
 		if(Mkirikae == 0) {
@@ -52,8 +53,8 @@ public void keyPressed(KeyEvent e) {
 			}
 			kaigyou();
 			Event.setSelectNumber(i);
-			
-			
+
+
 			//senta.sentaku(i, takusi);
 		}
 		break;
@@ -87,10 +88,8 @@ public void keyPressed(KeyEvent e) {
 			Event.selectDecision();
 		}
 		if(Mkirikae == 2) {
-			System.out.println("会話文決定押された");
-			Event.setSpeak(1);
-			
-			
+			//System.out.println("会話文決定された");
+			Event.setSpeak();
 		}
 			/*if(takusi[i] == "はい") {
 				syoji.setmotiflg(0);
@@ -101,10 +100,6 @@ public void keyPressed(KeyEvent e) {
 			syoji.setmoti(0);
 			sub.dispz();
 		}*/
-		else if(Mkirikae==2) {
-			System.out.println("Speakに送って");
-			
-		}
 		break;
 	}
 
