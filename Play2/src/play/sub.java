@@ -4,60 +4,46 @@ import java.util.Random;
 
 public class sub {
 	Random rand = new Random();
+	//tekima slep = new tekima();
+	///thread thread = new Thread()
+	//jkl jkl = new jkl();
+	tek[] sleep = {new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek(),new tek()};
+	static int slep = 0;
 
-	static int map = 55;
+	static int map = 0;
 	static int mmap = 0;
 	static int heya = 0;
 
 	static int[][]itiji;
 	static String[][]ui;
+	static int[][]ivent;
 
-	Map55 map55 = new Map55();
-	Map56 map56 = new Map56();
-	Kyousitu1 map45 = new Kyousitu1();
-	Kyousitu2 map45a = new Kyousitu2();
+	MapMam[] mapman = {new Map55(),new Map56(),new Kyousitu1(),new Kyousitu2()};
 
-	static int tekiy = 8,tekix = 8;
+	Map56 mapma = new Map56();
+	
+	Event event = new Event();
+	EventUi evui = new EventUi();
+	int iv;
+	
+	mot moti = new mot();
+	
+	static int tekiy = -1,tekix = -1;
 	static int teekix = -10,teekiy = -10;
-	int teeki = 0;
-	int syoumetu = 0;
-	int syou = 1;				//syou + 1までマップ移動
-	String[] uiui = {"□","■","木","机","像","◆","汎"};
+	int timez = 3;			//敵がマップ移動する回数　time = timez;
+	int time = -1;
+	String[] uiui = {"口","田","木","机","像","◆","汎"};
+	String[] iventui = {"扉"};
 
 
+	
 	public void syougai() {
-		if(map == 145) {
-			itiji = map45a.map56();
-			ui = new String[itiji.length][itiji[1].length];
-		}
-		else {
-		if(map == 55) {
-			itiji = map55.map55();
-			ui = new String[itiji.length][itiji[1].length];
-		}
-		if(map == 56) {
-			itiji = map56.map56();
-			ui = new String[itiji.length][itiji[1].length];
-		}
-		if(map == 45) {
-			itiji = map45.map56();
-			ui = new String[itiji.length][itiji[1].length];
-		}
-		}
+		itiji = mapman[map].map();
+		ui = new String[itiji.length][itiji[1].length];
+		ivent = mapman[map].ivent();
 	}
 	void mapna() {
-		if(map == 145) {
-			System.out.println(map45a.getname());
-		}
-		if(map == 55) {
-			System.out.println(map55.getname());
-		}
-		if(map == 56) {
-			System.out.println(map56.getname());
-		}
-		if(map == 45) {
-			System.out.println(map45.getname());
-		}
+		System.out.println(mapman[map].getname());
 	}
 static int jikiy = 1,jikix = 1;
 
@@ -74,10 +60,21 @@ static int jikiy = 1,jikix = 1;
 					ui[n][j] = uiui[0];
 				}
 				if(jikiy == n && jikix == j) {
-					ui[n][j] = "●";
+					ui[n][j] = "〇";
 				}
 				if(tekiy == n && tekix == j) {
 					ui[n][j] = "敵";
+				}
+				if(map == 1) {
+					if(mapma.getana()[n][j] == 1) {
+						ui[n][j] = "〇";
+					}
+				}
+				if(ivent[n][j] != 0) {
+					int w = evui.EventUi(map,ivent[n][j]);
+					if(w != 999) {
+						ui[n][j] = iventui[w];
+					}
 				}
 			}
 		}
@@ -88,19 +85,24 @@ static int jikiy = 1,jikix = 1;
 			}
 			System.out.println();
 		}
-		for(int n = 0;n < ui.length; n++) {
+		
+		/*for(int n = 0;n < ui.length; n++) {			//デバック用
 			for(int j = 0; j < ui[n].length; j++) {
-				System.out.print(itiji[n][j]);
+				System.out.print(mapman[map].ivent()[n][j]);
 			}
 			System.out.println();
+		}*/
+
+		
+		/*syoji.de();
+		for(int i = 0; i < moti.getmoti().length; i++) {
+			System.out.println(moti.getmoti()[i]);
 		}
+		System.out.println(mapman[map].ivent()[3][9]);*/
 	}
 
 	public void tekiidou() {
-		/*teki[tekiy][tekix] = null;
-		tekix --;
-		teki[tekiy][tekix] = "敵";*/
-		if(teeki == 1) {
+		/*if(teeki == 1) {
 			if(syoumetu > syou) {
 				tekix = -1;
 				tekiy = -1;
@@ -113,10 +115,10 @@ static int jikiy = 1,jikix = 1;
 				teekix = -10;
 			}
 			syoumetu++;
-		}
-		if(teeki == 0) {
+		}*/
+		if(tekiy != -1 && tekix != -1){
 			int fd = rand.nextInt(2);
-			if(rand.nextInt(2) != 0) {
+			if(rand.nextInt(2) != 3) {
 				int x,y;
 				x = tekix - jikix;
 				y = tekiy - jikiy;
@@ -167,15 +169,28 @@ static int jikiy = 1,jikix = 1;
 					}
 				}
 			}
-			if(jikiy == tekiy && jikix == tekix) {
+			if(map == 1) {
+				if(mapma.getana()[tekiy][tekix] == 1){
+					tekiy = -1;
+					tekix = -1;
+					System.out.println("敵が穴に落ちた");
+				}
+			}
+			else if(jikiy == tekiy && jikix == tekix) {
 				dispz();
 				System.out.println("GG");
 				System.exit(0);
 			}
+			dispz();
 		}
+		/*}
 		else {
 			teeki--;
-		}
+		}*/
+	}
+	void syu() {
+		tekiy = teekiy;
+		tekix = teekix;
 	}
 	void setkirikae(int kiri) {
 		kirikae = kiri;
@@ -195,92 +210,95 @@ static int jikiy = 1,jikix = 1;
 			idousyori(jikiy + 1,jikix);
 			break;
 		}
-		return kirikae;
+		//sleep.start();
+		//slep.start();
+		return sira;
 	}
 	int kirikae = 0;
 	syoji syoji = new syoji();
-	//Sentaku sentaku = new Sentaku();
-	
+	static int sira = 0;
+	Sentaku sentaku = new Sentaku();
 	void idousyori(int jikiya,int jikixa) {					//jikiya,jikixa 一歩前の座標
+		sira = 0;
 		if(jikiya == tekiy && jikixa == tekix) {			//敵と重なった時の処理
+			jikiy = jikiya;
+			jikix = jikixa;
 			dispz();
 			System.out.println("GG");
 			System.exit(0);
 		}
 		if(jikiya < 0 || jikixa < 0 || jikiya >= itiji.length || jikixa >= itiji[jikiy].length) {		//マップ移動するとき
+			if(slep > 0) {
+				sleep[slep - 1].interrupt();
+			}
+			if(slep > 0 && sleep[slep - 1].flg() == true) {
+				time--;
+			}
+			if(time >= 0) {
+				sleep[slep].start();
+				slep++;
+			}
+			else {
+				
+			}
 			mapidou();
 			dispz();
 		}
-		else if(itiji[jikiya][jikixa] == 3) {						//一歩前が調べるイベントがあるとき
-			int ne = rand.nextInt(3);
-			if(ne == 0) {
-				System.out.println("カッターで切り付けられたぼろぼろの机だ");
+		else if(ivent[jikiya][jikixa] != 0) {
+			iv = ivent[jikiya][jikixa];
+			int w = event.ev(map,ivent[jikiya][jikixa]);
+			if(w != 999) {
+				mapman[map].oru(w,0);
+				ivent = mapman[map].ivent();
 			}
-			else if(ne == 1) {
-				System.out.println("ただの机だ");
+			if(w == 998) {
+				sira = 3;
 			}
-			else if(ne == 2) {
-				System.out.println("きちんと整理された綺麗な机だ");
+			else {
+				sira = 2;
 			}
 		}
 		else if(itiji[jikiya][jikixa] == 4) {
 			if(tekiy == -1 && tekix == -1) {
-				System.out.println("ゴゴゴゴゴゴゴゴ");
-				syoumetu = syou - 1;
+				System.out.println("ゴゴゴゴゴゴゴゴ▼");
 				tekiy = 8;
 				tekix = 8;
 				teekiy = tekiy;
 				teekix = tekix;
+				sleep[slep].start();
+				slep++;
+				time = timez;
+				//slep.start();
 			}
 			else {
-				System.out.println("ただの石像だ");
+				System.out.println("ただの石像だ▼");
 			}
-		}
-		else if(itiji[jikiya][jikixa] == 5) {
-			/*if(syoji.getmoti()[0] == 0) {
-				System.out.println("鍵がかかった扉だ");
-			}
-			else if(syoji.getmoti()[0] == 1) {
-				System.out.println("鍵を使いますか？");
-				String[] i= {"はい","いいえ"};
-				sentaku.sentaku(0,i);
-				kirikae = 1;
-			}*/
-		}
-		else if(itiji[jikiya][jikixa] == 6) {
-			/*if(syoji.motiflg[0] == 1) {
-				System.out.println("鍵がある。拾いますか？");
-				String[] i= {"はい","いいえ"};
-				.sentaku(0,i);
-				kirikae = 1;
-				
-			}*/
+			sira = 2;
 		}
 		else if(itiji[jikiya][jikixa] > 0) {
-			
+			Siraberu siraberu = new Siraberu();
+			sira = siraberu.siraberu(jikiya,jikixa);
 		}
 		else if(itiji[jikiya][jikixa] <= 0){					//普通の移動
 			jikiy = jikiya;
 			jikix = jikixa;
-			tekiidou();
+			//tekiidou();
 			dispz();
+		}
+		if(sira == 1) {
+
+		}
+	}
+	void pass(String name) {
+		int w = event.pass(map,iv,name);
+		if(w == 1) {
+			mapman[map].oru(1, 0);
 		}
 	}
 	void mapidou() {
-		if(map == 55) {
-			wap(map55.getmapjouhou(itiji[jikiy][jikix]),map55.gethantei());
-		}
-		else if(map == 56) {
-			wap(map56.getmapjouhou(itiji[jikiy][jikix]),map56.gethantei());
-		}
-		else if(map == 45) {
-			wap(map45.getmapjouhou(itiji[jikiy][jikix]),map45.gethantei());
-		}
-		else if(map == 145) {
-			wap(map45a.getmapjouhou(itiji[jikiy][jikix]),map45a.gethantei());
-		}
+		wap(mapman[map].getmapjouhou(itiji[jikiy][jikix]));
 	}
-	void wap(int[]jou,boolean han) {
+	void wap(int[]jou) {
 		map = jou[1];
 		/*tekimap tekimap = new tekimap();
 		tekimap.hikisu(map,han);
@@ -297,7 +315,6 @@ static int jikiy = 1,jikix = 1;
 					teekiy = n;
 					tekix = - 1;
 					tekiy = - 1;
-					teeki = 5;
 					n = 999;
 					break;
 				}
@@ -315,8 +332,75 @@ static int jikiy = 1,jikix = 1;
 		}
 	}
 }
+class tekima extends Thread{
+	static boolean sonzai = false;
+	static boolean midou = false;
+	public void run() {
+		sub sub = new sub();
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO 自動生成された catch ブロック
+			}
+			if(midou == true) {
+				midou = false;
+				return;
+			}
+			sub.dispz();
+			System.out.println("a");
+			while(true) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO 自動生成された catch ブロック
+				}
+				if(sonzai == true) {
+					sub.tekiidou();
+					sub.dispz();
+				}
+				else {
+					return;
+				}
+			}
 
-class slep extends Thread{
+	}
+	void sonzai(boolean i) {
+		sonzai = i;
+	}
+	void midou(boolean i) {
+		midou = i;
+	}
+}
+class jkl extends Thread{
+	synchronized public void run() {
+		sub sub = new sub();
+		try {
+			sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		sub.dispz();
+	}
+}
+/*class sleep extends Thread{
+	sub sub = new sub();
+	synchronized public void run() {
+		while(true) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+				return;
+			}
+			sub.tekiidou();
+			sub.dispz();
+		}
+	}
+
+}*/
+/*class slep extends Thread{
 	static int houkou,map;
 	sub sub = new sub();
 	String[][]teki;
@@ -355,7 +439,7 @@ class slep extends Thread{
 				break;
 			}
 			i = a.mod();
-		}*/
+		}
 		if(han == true) {
 			maap = map;
 			sub.dispz();
@@ -374,7 +458,7 @@ class slep extends Thread{
 		}
 	}
 }
-/*class jikan extends Thread{
+class jikan extends Thread{
 	static int mo = 0;
 	public void run(){
 		try {
