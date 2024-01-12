@@ -22,6 +22,7 @@ class TestWindow extends JFrame implements KeyListener {
 		Event.start();
 	}
 	int Mkirikae = 0;
+	boolean select = false;//選択肢が何回も並列実行をしないようにするため用
 	sub sub = new sub();
 	Event Event = new Event();
 	Speak_text speak_text = new Speak_text();
@@ -41,7 +42,12 @@ public void keyPressed(KeyEvent e) {
 	// TODO 自動生成されたメソッド・スタブ
 	//0がマップ、1が選択肢、2が会話文
 	Mkirikae = Event.getEvent();
-	//System.out.println("今のMain切り替え"+Mkirikae);
+	if(Mkirikae==1 && select == false) {
+		//Event.start();
+		select = true;
+		System.out.print("切り替わった");
+	}
+	System.out.println("今のMain切り替え"+Mkirikae);
 	switch (e.getKeyCode()) {
 	case KeyEvent.VK_UP:
 		if(Mkirikae == 0) {
@@ -86,6 +92,7 @@ public void keyPressed(KeyEvent e) {
 	case KeyEvent.VK_SPACE:
 		if(Mkirikae == 1) {
 			System.out.println("選択肢決定押された");
+			Event.preese();
 			Event.selectDecision();
 		}
 		if(Mkirikae == 2) {
