@@ -12,6 +12,15 @@ public class Event extends Thread {
 	public void prorogu() {
 		Ekirikae = 2;
 		Epi.start();
+		Ekirikae = 1;
+		select.setSelect("はい,いいえ","テスト");
+		if(number==0) {
+			System.out.println("はい");
+		}
+		else if(number==1) {
+			System.out.println("いいえ");
+		}
+
 
 
 
@@ -27,11 +36,11 @@ public class Event extends Thread {
 	}
 	public void selectDecision() {
 		number = select.getNumber();
-		notify();//処理スタート
+		//notify();//処理スタート
 		System.out.println("あなたは"+number+"を押しました。");
 	}
 	public void run() {//並列処理
-			System.out.print("");
+			rp();
 	}
 	void rp() {//すべての処理が終わるまでループ
 		synchronized(this) {
