@@ -22,8 +22,8 @@ public class sub {
 
 	Map56 mapma = new Map56();
 	
-	Event event = new Event();
-	EventUi evui = new EventUi();
+	MapEvent event = new MapEvent();
+	MapEventUi evui = new MapEventUi();
 	int iv;
 	
 	mot moti = new mot();
