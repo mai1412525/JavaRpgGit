@@ -13,6 +13,8 @@ public class Event extends Thread {
 		Ekirikae = 2;
 		Epi.start();
 
+
+
 	}
 
 	public void setSelectNumber (int num) {
@@ -35,7 +37,8 @@ public class Event extends Thread {
 		synchronized(this) {
 			try {
 				wait();
-			} catch (InterruptedException e) {
+			}
+			catch (InterruptedException e) {
 			}
 			return;
 		}

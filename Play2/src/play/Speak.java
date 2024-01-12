@@ -1,8 +1,7 @@
 package play;
-public class Speak{
+public class Speak extends Thread{
 	boolean keyWait = false;
 	boolean key = false;
-
 	public void S(String moji, int speed) {
 
 		String[] strArray = new String[moji.length()];
@@ -31,11 +30,14 @@ public class Speak{
 				} catch (InterruptedException e) {
 			}
 				return;
-		}
+		}            
 	}
 
 	}
 	synchronized void preese() {
 		notify();
+	}
+	public void run() {
+		
 	}
 }
