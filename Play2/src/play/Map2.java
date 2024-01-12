@@ -12,14 +12,14 @@ class Map556 extends MapMam{		//サンプル
 	int[]zou = {5,15};
 	int[]kuti = {-11,3,4, -12,11,12, -13,16,17, -14,24,25, -21,2,3, -31, -41};
 
-	int[]jouhou = {-11,2,-31, -12,2,-32, -13,3,-31, -14,3,-32, -21,1,-41};
+	int[]jouhou = {-11,2,-31, -12,2,-32, -13,3,-31, -14,3,-32, -21,1,-41};		//int[]jouhou = {};　でコピペ
 	int[]mituketa = new int [3];			//コピペ
 	int[][]ivent = syougai;			//コピペ
 
 	String name = "[廊下]";		//部屋の名前
 	MapSyori syori = new MapSyori();			//コピペ
 
-
+	//uiの配列{"口","田","木","机","像","◆","汎"};
 	public int[][] map(){			//まっぷでーた
 		syori.sotowaku(syougai);	//さいしょに
 		syori.jouh(syougai,ki,2);		//（syougai,[配列名],[uiの配列番号]）
@@ -29,7 +29,7 @@ class Map556 extends MapMam{		//サンプル
 
 		return syougai;
 	}
-	public int[] getmapjouhou(int id) {
+	public int[] getmapjouhou(int id) {		//↓コピペ
 		syori.mapjouhou(id, jouhou, mituketa);
 		return mituketa;
 	}
@@ -38,5 +38,14 @@ class Map556 extends MapMam{		//サンプル
 	}
 	public int[][] ivent(){
 		return ivent;
+	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
 	}
 }
