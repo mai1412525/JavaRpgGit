@@ -12,7 +12,7 @@ public class Event extends Thread {
 	public void prorogu() {
 		Ekirikae = 2;
 		Epi.start();
-		
+
 	}
 
 	public void setSelectNumber (int num) {

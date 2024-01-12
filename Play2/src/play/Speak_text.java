@@ -4,6 +4,7 @@ public class Speak_text extends Thread {
 	int space;
 	Speak speak = new Speak();
 	public void Epi0() {
+
 		speak.S("Spaceキーを押すと次の会話に進みます。", 30);
 		speak.S("女子生徒A「なんか最近怖いよねー」", 30);
 		speak.S("女子生徒B「なにがー？」", 30);

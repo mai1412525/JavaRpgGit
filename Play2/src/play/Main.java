@@ -28,6 +28,7 @@ class TestWindow extends JFrame implements KeyListener {
 
 
 
+
 @Override
 public void keyTyped(KeyEvent e) {
 	// TODO 自動生成されたメソッド・スタブ

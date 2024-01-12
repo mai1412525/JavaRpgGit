@@ -2,6 +2,7 @@ package play;
 public class Speak{
 	boolean keyWait = false;
 	boolean key = false;
+
 	public void S(String moji, int speed) {
 
 		String[] strArray = new String[moji.length()];
@@ -32,7 +33,7 @@ public class Speak{
 				return;
 		}
 	}
-		
+
 	}
 	synchronized void preese() {
 		notify();
