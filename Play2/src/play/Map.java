@@ -43,6 +43,15 @@ class Map55 extends MapMam{
 	public int[][] ivent(){
 		return ivent;
 	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
+	}
 }
 
 class Map56 extends MapMam {
@@ -95,6 +104,15 @@ class Map56 extends MapMam {
 	public int[][] getana(){
 		return ana;
 	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
+	}
 }
 
 class Kyousitu1 extends MapMam {
@@ -137,6 +155,15 @@ class Kyousitu1 extends MapMam {
 	}
 	public int[][] ivent(){
 		return ivent;
+	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
 	}
 }
 
@@ -181,6 +208,15 @@ class Kyousitu2 extends MapMam {
 	public int[][] ivent(){
 		return ivent;
 	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
+	}
 }
 class genkan extends MapMam{
 
@@ -221,6 +257,15 @@ class genkan extends MapMam{
 	}
 	public int[][] ivent(){
 		return ivent;
+	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
 	}
 }
 
