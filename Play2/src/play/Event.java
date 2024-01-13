@@ -7,24 +7,7 @@ public class Event extends Thread {
 	String[] flag2 = new String[10];//フラグ管理
 
 	select select = new select();
-	Speak_text Epi = new Speak_text();
-
-	public void prorogu() {
-		Ekirikae = 2;
-		Epi.start();
-		Ekirikae = 1;
-		select.setSelect("はい,いいえ","テスト");
-		if(number==0) {
-			System.out.println("はい");
-		}
-		else if(number==1) {
-			System.out.println("いいえ");
-		}
-
-
-
-
-	}
+	Speak_text[] Epi =  {new Epi0(), new Epi1() };
 
 	public void setSelectNumber (int num) {
 		this.number = num;
@@ -40,24 +23,40 @@ public class Event extends Thread {
 		System.out.println("あなたは"+number+"を押しました。");
 	}
 	public void run() {//並列処理
-			rp();
+		Ekirikae = 2;
+		Epi[0].start();
+		rp();
+		Epi[1].start();
+		rp();
 	}
 	void rp() {//すべての処理が終わるまでループ
-		synchronized(this) {
-			try {
-				wait();
+		for(int i=0;i<Epi.length;) {
+			if(Epi[i].getPreese() == false) {
+				break;
 			}
-			catch (InterruptedException e) {
+			else {
+				synchronized(this) {
+					try {
+						wait();
+					}
+					catch (InterruptedException e) {
+					}
+					return;
+				}
 			}
-			return;
 		}
+
 	}
 	synchronized void preese() {
 		notify();
 	}
 	public void setSpeak() {//Event処理をすすめる
-		Epi.preese();
+		for(int i = 0; i<Epi.length;i++) {
+			Epi[i].preese();       
+		}
+		
 	}
+	
 
 }
 

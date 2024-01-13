@@ -269,4 +269,4 @@ class genkan extends MapMam{
 	}
 }
 
-class
+

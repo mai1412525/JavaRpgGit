@@ -1,5 +1,5 @@
 package play;
-public class Speak extends Thread{
+public class Speak {
 	boolean keyWait = false;
 	boolean key = false;
 	public void S(String moji, int speed) {
@@ -36,8 +36,5 @@ public class Speak extends Thread{
 	}
 	synchronized void preese() {
 		notify();
-	}
-	public void run() {
-		
 	}
 }
