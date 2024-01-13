@@ -26,6 +26,12 @@ public class Event extends Thread {
 		Ekirikae = 2;
 		Epi[0].start();
 		rp();
+		try {
+			Epi[0].join();
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 		Epi[1].start();
 		rp();
 	}
