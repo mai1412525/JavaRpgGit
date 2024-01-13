@@ -90,7 +90,7 @@ public void keyPressed(KeyEvent e) {
 	case KeyEvent.VK_SPACE:
 		if(Mkirikae == 1) {
 			System.out.println("選択肢決定押された");
-			Event.preese();
+			//Event.speakPreese();
 			Event.selectDecision();
 		}
 		if(Mkirikae == 2) {

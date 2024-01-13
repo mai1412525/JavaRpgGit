@@ -1,7 +1,7 @@
 package play;
 
 
-public class select{
+public class select extends Thread{
 
 	String[] moji_join;
 	String title;
@@ -20,6 +20,7 @@ public class select{
     	this.moji_join = moji_join;
     	this.title = title;
     	dispSelect(0);//選択肢表示
+    	rp();
     }
 
 	public void dispSelect(int sentaku) {//表示
@@ -37,7 +38,20 @@ public class select{
 			}
 		}
 	}
+
 	public int getNumber() {
 		return select_number;
+	}
+	void rp() {
+		synchronized(this) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+		}
+			return;
+		}
+	}
+	synchronized void selectPreese() {
+		notify();
 	}
 }

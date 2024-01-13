@@ -1,12 +1,7 @@
 package play;
 public class Speak_text extends Thread {
-	private int number;
 	boolean preese;
-	String name;
 	Speak speak = new Speak();
-	public void setNameSelect(String name) {
-	this.name = name;
-	}
 	
 	 public void run() {
 		
@@ -46,7 +41,7 @@ class Epi0 extends Speak_text{
 class Epi1 extends Speak_text{
 	public void run() {	
 		speak.S("Epi1", 30);
-		speak.S("123456789",1000);
+		speak.S("123456789",20);
 			}
 	@Override
 	void preese() {
@@ -54,6 +49,42 @@ class Epi1 extends Speak_text{
 	}
 	void synchoronized(){
 		
+	}
+}
+class Epi2 extends Speak_text{
+	@Override
+	public void run() {
+		preese = true;
+		speak.S("はいがおされました", 30);
+		speak.S("わーい", 30);
+			}
+	@Override
+	void preese() {
+		speak.preese();
+	}
+}
+class Epi3 extends Speak_text{
+	@Override
+	public void run() {
+		preese = true;
+		speak.S("いいえがおされました", 30);
+		speak.S("おーのー", 30);
+			}
+	@Override
+	void preese() {
+		speak.preese();
+	}
+}
+class Epi4 extends Speak_text{
+	@Override
+	public void run() {
+		preese = true;
+		speak.S("Epi4", 30);
+		speak.S("とりあえず進もう", 30);
+			}
+	@Override
+	void preese() {
+		speak.preese();
 	}
 }
 

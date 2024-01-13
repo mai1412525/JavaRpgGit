@@ -7,21 +7,13 @@ public class Event extends Thread {
 	String[] flag2 = new String[10];//フラグ管理
 
 	select select = new select();
-	Speak_text[] Epi =  {new Epi0(), new Epi1() };
+	Speak_text[] Epi =  {new Epi0(), new Epi1() ,new Epi2(),new Epi3() ,new Epi4()};
 
-	public void setSelectNumber (int num) {
-		this.number = num;
-		select.dispSelect(number);
-		System.out.println(num+"を出力");
-	}
+	
 	public int getEvent() {
 		return Ekirikae;
 	}
-	public void selectDecision() {
-		number = select.getNumber();
-		//notify();//処理スタート
-		System.out.println("あなたは"+number+"を押しました。");
-	}
+	
 	public void run() {//並列処理
 		Ekirikae = 2;
 		Epi[0].start();
@@ -34,7 +26,56 @@ public class Event extends Thread {
 		}
 		Epi[1].start();
 		rp();
-	}
+		try {
+			Epi[1].join();
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		Ekirikae = 1;
+		select.setSelect("はい,いいえ","テスト");
+		rp();
+		try {
+			select.join();
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		Ekirikae = 2;
+		
+		if(number==0) {
+			Epi[2].start();
+			rp();
+			try {
+				Epi[2].join();
+			} catch (InterruptedException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}
+		else if(number == 1) {
+			Epi[3].start();
+			rp();
+			try {
+				Epi[3].join();
+			} catch (InterruptedException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}
+		Epi[4].start();
+		rp();
+		try {
+			Epi[4].join();
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		Ekirikae = 0;
+		}
+		
+		
+	
 	void rp() {//すべての処理が終わるまでループ
 		for(int i=0;i<Epi.length;) {
 			if(Epi[i].getPreese() == false) {
@@ -53,15 +94,26 @@ public class Event extends Thread {
 		}
 
 	}
-	synchronized void preese() {
-		notify();
-	}
+	//Speak(会話)
 	public void setSpeak() {//Event処理をすすめる
 		for(int i = 0; i<Epi.length;i++) {
 			Epi[i].preese();       
 		}
 		
 	}
+	//Select(選択肢)
+	public void setSelectNumber (int num) {
+		this.number = num;
+		select.dispSelect(number);
+		System.out.println(num+"を出力");
+	}
+	
+	public void selectDecision() {
+		number = select.getNumber();
+		System.out.println("あなたは"+number+"を押しました。");
+		select.selectPreese();
+	}
+	
 	
 
 }
