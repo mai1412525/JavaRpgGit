@@ -37,6 +37,8 @@ public void keyTyped(KeyEvent e) {
 @Override
 public void keyPressed(KeyEvent e) {
 	int i = 0;
+	sub.syougai();
+	
 	// TODO 自動生成されたメソッド・スタブ
 	//0がマップ、1が選択肢、2が会話文
 	Mkirikae = Event.getEvent();
@@ -49,9 +51,10 @@ public void keyPressed(KeyEvent e) {
 	switch (e.getKeyCode()) {
 	case KeyEvent.VK_UP:
 		if(Mkirikae == 0) {
+			
 			sub.idou(5);
 			sub.dispz();
-		}
+		}                                        
 		else if(Mkirikae == 1) {
 			if(i > 0) {
 				i--;
@@ -112,7 +115,7 @@ public void keyPressed(KeyEvent e) {
 }
 
 void kaigyou() {
-	for(int i=0;i<10;i++) {
+	for(int i=0;i<20;i++) {
 		System.out.println("");
 	}
 }
