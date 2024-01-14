@@ -2,11 +2,11 @@ package sample;
 
 import java.util.concurrent.CountDownLatch;
 
-class SpaceObserver extends Thread {
+class SpaceObserver2 extends Thread {
     private volatile int space = 0;
     private final CountDownLatch latch;
 
-    public SpaceObserver(CountDownLatch latch) {
+    public SpaceObserver2(CountDownLatch latch) {
         this.latch = latch;
     }
 
@@ -32,7 +32,7 @@ public class N {
             // 新しいCountDownLatchを用意
             CountDownLatch latch = new CountDownLatch(1);
 
-            SpaceObserver observer = new SpaceObserver(latch);
+            SpaceObserver2 observer = new SpaceObserver2(latch);
 
             // スレッドを開始
             observer.start();
