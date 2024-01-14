@@ -14,11 +14,15 @@ class Map556 extends MapMam{		//サンプル
 
 	int[]jouhou = {-11,2,-31, -12,2,-32, -13,3,-31, -14,3,-32, -21,1,-41};		//int[]jouhou = {};　でコピペ
 	int[]mituketa = new int [3];			//コピペ
-	int[][]ivent = syougai;			//コピペ
+	int[][]ivent = new int[tate][yoko];			//コピペ
+	int[]tobira = {2,29,3,29};
 
 	String name = "[廊下]";		//部屋の名前
 	MapSyori syori = new MapSyori();			//コピペ
 
+	{			//マップイベント
+		syori.jouh(ivent, tobira, 1);
+	}
 	//uiの配列{"口","田","木","机","像","◆","汎"};
 	public int[][] map(){			//まっぷでーた
 		syori.sotowaku(syougai);	//さいしょに

@@ -14,13 +14,16 @@ class Map55 extends MapMam{
 
 	int[]jouhou = {-11,2,-31, -12,2,-32, -13,3,-31, -14,3,-32, -21,1,-41};
 	int[]mituketa = new int [3];			//コピペ
-	int[][]ivent = syougai;			//コピペ
+	int[][]ivent = new int[tate][yoko];			//コピペ
+	int[]tobira = {2,29,3,29};
 
 	//boolean han = true;			//コピペ
 	String name = "[廊下]";
 	MapSyori syori = new MapSyori();			//コピペ
 
-
+	{			//マップイベント
+		syori.jouh(ivent, tobira, 1);
+	}
 	public int[][] map(){			//まっぷでーた
 		syori.sotowaku(syougai);	//さいしょに
 		syori.jouh(syougai,ki,2);
@@ -69,7 +72,7 @@ class Map56 extends MapMam {
 
 	int[]kuti = {-11,-21, -31, -41,3,4};
 	int[]mituketa = new int [3];
-	int[][]ivent = syougai;
+	int[][]ivent = new int[tate][yoko];
 	int[][]ana = syougai;
 	{
 	ana[5][6] = 1;
@@ -127,12 +130,17 @@ class Kyousitu1 extends MapMam {
 	int[]jouhou = {-31,0,-11, -32,0,-12};
 	int[]mituketa = new int [3];
 	int[]tukue = {3,3,3,6,3,9,6,3,6,6,6,9};
-	int[][]ivent = syougai;
+	
+	int[][]ivent = new int[tate][yoko];
+	int[]kami1 = {3,9};
 
 	boolean han = false;
 	String name = "1-1";
 	MapSyori syori = new MapSyori();
 
+	{
+		syori.jouh(ivent,kami1,1);
+	}
 
 	public int[][]  map(){
 		syori.sotowaku(syougai);
@@ -180,7 +188,7 @@ class Kyousitu2 extends MapMam {
 	int[]jouhou = {-31,0,-13, -32,0,-14};
 
 	int[]mituketa = new int [3];
-	int[][]ivent = syougai;
+	int[][]ivent = new int[tate][yoko];
 
 	boolean han = false;
 	String name = "1-2";
@@ -235,7 +243,7 @@ class genkan extends MapMam{
 
 	int[]jouhou = {};
 	int[]mituketa = new int [3];			//コピペ
-	int[][]ivent = syougai;			//コピペ
+	int[][]ivent = new int[tate][yoko];			//コピペ
 
 	String name = "[玄関]";
 	MapSyori syori = new MapSyori();			//コピペ
