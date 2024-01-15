@@ -24,8 +24,9 @@ class TestWindow extends JFrame implements KeyListener {
 	int Mkirikae = 0;
 	boolean select = false;//選択肢が何回も並列実行をしないようにするため用
 	sub sub = new sub();
+	Key key = new Key();
 	Event Event = new Event();
-	Key namekey = new Key();
+	
 
 
 
@@ -48,7 +49,7 @@ public void keyPressed(KeyEvent e) {
 		sub.dispz();
 	}
 	if(Mkirikae == 3) {
-		int w = namekey.key(e);
+		int w = key.key(e);
 		Event.setkirikae(w);
 		return;
 	}

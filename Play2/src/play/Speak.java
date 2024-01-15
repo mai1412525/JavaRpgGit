@@ -34,7 +34,7 @@ public class Speak {
 	}
 
 	}
-	synchronized void preese() {
-		notify();
-	}
+		synchronized void preese() {
+			notify();
+		}
 }
