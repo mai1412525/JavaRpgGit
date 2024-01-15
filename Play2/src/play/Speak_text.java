@@ -1,19 +1,10 @@
 package play;
-public class Speak_text extends Thread {
+public abstract class Speak_text{//親クラス
 	boolean preese;
 	Speak speak = new Speak();
 	
-	 public void run() {
-		
-	}
-	 
-	 void preese() {
-		
-	}
-	 
-	 void waitProcessing() {
-		 
-	 }
+	 public abstract void run();
+	 abstract void preese();
 	 public boolean getPreese() {
 		 return preese;
 	 }

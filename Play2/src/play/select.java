@@ -1,7 +1,7 @@
 package play;
 
 
-public class select extends Thread{
+public class select {
 
 	String[] moji_join;
 	String title;

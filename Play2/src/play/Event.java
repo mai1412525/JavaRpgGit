@@ -9,73 +9,31 @@ public class Event extends Thread {
 	select select = new select();
 	Speak_text[] Epi =  {new Epi0(), new Epi1() ,new Epi2(),new Epi3() ,new Epi4()};
 
-	
+
 	public int getEvent() {
 		return Ekirikae;
 	}
-	
+
 	public void run() {//並列処理
 		Ekirikae = 2;
-		Epi[0].start();
-		rp();
-		try {
-			Epi[0].join();
-		} catch (InterruptedException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-		Epi[1].start();
-		rp();
-		try {
-			Epi[1].join();
-		} catch (InterruptedException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
+		Epi[0].run();
+		Epi[1].run();
 		Ekirikae = 1;
 		select.setSelect("はい,いいえ","テスト");
-		rp();
-		try {
-			select.join();
-		} catch (InterruptedException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
 		Ekirikae = 2;
-		
-		if(number==0) {
-			Epi[2].start();
-			rp();
-			try {
-				Epi[2].join();
-			} catch (InterruptedException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
+		if(number == 0) {
+			Epi[2].run();
 		}
 		else if(number == 1) {
-			Epi[3].start();
-			rp();
-			try {
-				Epi[3].join();
-			} catch (InterruptedException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
+			Epi[3].run();
 		}
-		Epi[4].start();
-		rp();
-		try {
-			Epi[4].join();
-		} catch (InterruptedException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
+		Epi[4].run();
 		Ekirikae = 0;
+
 		}
-		
-		
-	
+
+
+
 	void rp() {//すべての処理が終わるまでループ
 		for(int i=0;i<Epi.length;) {
 			if(Epi[i].getPreese() == false) {
@@ -97,24 +55,24 @@ public class Event extends Thread {
 	//Speak(会話)
 	public void setSpeak() {//Event処理をすすめる
 		for(int i = 0; i<Epi.length;i++) {
-			Epi[i].preese();       
+			Epi[i].preese();
 		}
-		
+
 	}
 	//Select(選択肢)
 	public void setSelectNumber (int num) {
 		this.number = num;
 		select.dispSelect(number);
-		System.out.println(num+"を出力");
+		//System.out.println(num+"を出力");
 	}
-	
+
 	public void selectDecision() {
 		number = select.getNumber();
-		System.out.println("あなたは"+number+"を押しました。");
+		//System.out.println("あなたは"+number+"を押しました。");
 		select.selectPreese();
 	}
-	
-	
+
+
 
 }
 
