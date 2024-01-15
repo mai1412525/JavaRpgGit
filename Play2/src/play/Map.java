@@ -246,7 +246,11 @@ class genkan extends MapMam{
 	int[][]ivent = new int[tate][yoko];			//コピペ
 
 	String name = "[玄関]";
-	MapSyori syori = new MapSyori();			//コピペ
+	MapSyori syori = new MapSyori();	//こぴぺ
+
+	{
+
+	}
 
 	public int[][] map(){
 		syori.sotowaku(syougai);
@@ -293,6 +297,8 @@ class kyousitu_1 extends MapMam {
 	String name = "[教室1]";
 	MapSyori syori = new MapSyori();			//コピペ
 
+	{
+	}
 	public int[][] map(){				//マップデータ
 		syori.sotowaku(syougai);
 		syori.jouh(syougai,kuromasu,1);
