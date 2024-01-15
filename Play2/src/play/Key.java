@@ -7,58 +7,16 @@ import javax.swing.JFrame;
 
 public class Key {
 
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
-		KeyTestWindow gw = new KeyTestWindow("テストウィンドウ",0,0);
-		gw.setVisible(true);
-		
-		for(int i = 0; i< 30; i++) {
-			System.out.println();
-		}
-		
-		sen sen = new sen();
-		sen.taku(0);
-	}
-
-}
-
-class KeyTestWindow extends JFrame implements KeyListener {
 	String name = "";
-	int flg = 0;			//0,sentaku		1,nyuuryoku
+	int flg = 1;			//0,sentaku		1,nyuuryoku　　（実装しない）
 	int sentaku = 0;
-	int gengo = 0;
+	int gengo = 1;			//0abc	１あいう  （実装しない）
 	sen sen = new sen();
-	public KeyTestWindow(String title, int width, int height) {
-		super(title);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(width,height);
-		setLocationRelativeTo(null);
-		setLayout(null);
-		setResizable(false);
-		
-		//キー入力の有効化
-		addKeyListener(this);
+	
+	String getname() {
+		return name;
 	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO 自動生成されたメソッド・スタブ
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO 自動生成されたメソッド・スタブ
-		while(true) {
-			System.out.print("");
-			int i = 0;
-			if(i == 0) {
-				
-			}
-			else {
-				break;
-			}
-		}
+	int key(KeyEvent e) {
 		for(int i = 0; i< 30; i++) {
 			System.out.println();
 		}
@@ -183,20 +141,20 @@ class KeyTestWindow extends JFrame implements KeyListener {
 				name = name.substring(0, name.length() - 1);
 			}
 			break;
-		case KeyEvent.VK_ENTER:
-			tu tu = new tu();
+		case KeyEvent.VK_SPACE:
 			for(int i = 0; i< 20; i++) {
 				System.out.println();
 			}
-			tu.jk(name);
-			flg = 2;
-			return;
-		case KeyEvent.VK_ESCAPE:
+			sen.taku(sentaku,name);
+			flg = 0;
+			
+			//flg = 2;
+		/*case KeyEvent.VK_ESCAPE:
 			flg = 0;
 			name = "";
 			sen sen = new sen();
 			sen.taku(0);
-			break;
+			break;*/
 		}
 		}
 		else if(flg == 0) {
@@ -206,32 +164,34 @@ class KeyTestWindow extends JFrame implements KeyListener {
 				if(sentaku > 0) {
 					sentaku--;
 				}
-				sen.taku(sentaku);
+				sen.taku(sentaku,name);
 				j = 1;
 				break;
 			case KeyEvent.VK_DOWN:
 				if(sentaku < 1) {
 					sentaku++;
 				}
-				sen.taku(sentaku);
+				sen.taku(sentaku,name);
 				j = 1;
 				break;
-			case KeyEvent.VK_ENTER:
+			case KeyEvent.VK_SPACE:
 				if(sentaku == 0) {
-					gengo = 0;
+					flg = 1;
+					return 2;
 				}
-				else if(sentaku == 1) {
-					gengo = 1;
+				else if(sentaku == 1){
+					for(int i = 0; i< 30; i++) {
+						System.out.println();
+					}
+					flg = 1;
+					j = 1;
 				}
-				flg = 1;
-				j = 1;
-				return;
 			}
 			if(j == 0) {
-				sen.taku(sentaku);
+				sen.taku(sentaku,name);
 			}
 		}
-		if(gengo == 1) {
+		if(gengo == 1) {			//ひらがなにする
 			syorisou sub = new syorisou();
 			//System.out.println("w = " + w);
 			if(name.endsWith("a") == true || name.endsWith("i") == true|| name.endsWith("u") == true|| name.endsWith("e") == true|| name.endsWith("o") == true) {
@@ -259,38 +219,16 @@ class KeyTestWindow extends JFrame implements KeyListener {
 			}
 		}
 		if(flg == 1) {
-			int kai = 20;
-			int w = name.length() / kai;
-			String[] ww = new String[w + 1];
-			for(int i = 0; i < w + 1; i++) {
-				if(i == w) {
-					ww[i] = name.substring(i * kai, name.length());
-				}
-				else {
-					ww[i] = name.substring(i * kai,i * kai + kai);
-				}
-			}
-			for(int i = 0; i < ww.length; i++) {
-				System.out.println(ww[i]);
-			}
+			System.out.println(name);
 		}
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO 自動生成されたメソッド・スタブ
-		
-	}
-}
-class tu{
-	void jk(String name) {
-		System.out.println(name + " って変な名前だな");
+		return 3;
 	}
 }
 class sen{
-	String[] taku = {"a","あ"};
-	void taku(int sentaku) {
-		System.out.println("どっちで入力する？");
+	String[] taku = {"はい","いいえ"};
+	void taku(int sentaku,String name) {
+		System.out.println(name);
+		System.out.println("これでよろしいですか？");
 		for(int i = 0; i < taku.length; i++) {
 			if(i == sentaku) {
 				System.out.println("●" + taku[i]);

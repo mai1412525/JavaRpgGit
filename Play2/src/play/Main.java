@@ -18,13 +18,14 @@ class TestWindow extends JFrame implements KeyListener {
 		addKeyListener(this);
 		/*sub.syougai();
 		sub.tekiidou();*/
-		Event.start();
+		//Event.start();
 		sub.syougai();
 	}
 	int Mkirikae = 0;
 	boolean select = false;//選択肢が何回も並列実行をしないようにするため用
 	sub sub = new sub();
 	Event Event = new Event();
+	Key namekey = new Key();
 
 
 
@@ -41,10 +42,15 @@ public void keyPressed(KeyEvent e) {
 	
 	
 	// TODO 自動生成されたメソッド・スタブ
-	Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文
+	Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力
 	//System.out.println("今のMain切り替え"+Mkirikae);
 	if(Mkirikae == 0) {
 		sub.dispz();
+	}
+	if(Mkirikae == 3) {
+		int w = namekey.key(e);
+		Event.setkirikae(w);
+		return;
 	}
 	switch (e.getKeyCode()) {
 	case KeyEvent.VK_UP:

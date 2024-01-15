@@ -13,6 +13,9 @@ public class Event extends Thread {
 	public int getEvent() {
 		return Ekirikae;
 	}
+	public void setkirikae(int i) {
+		Ekirikae = i;
+	}
 
 	public void run() {//並列処理
 		Ekirikae = 2;
