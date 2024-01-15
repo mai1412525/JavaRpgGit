@@ -130,7 +130,7 @@ class Kyousitu1 extends MapMam {
 	int[]jouhou = {-31,0,-11, -32,0,-12};
 	int[]mituketa = new int [3];
 	int[]tukue = {3,3,3,6,3,9,6,3,6,6,6,9};
-	
+
 	int[][]ivent = new int[tate][yoko];
 	int[]kami1 = {3,9};
 
@@ -276,5 +276,40 @@ class genkan extends MapMam{
 		}
 	}
 }
+class kyousitu_1 extends MapMam {
 
+	int tate = 26;
+	int yoko = 24;
+	int[][]syougai = new int[tate][yoko];				//マスごとのデータ
+	int[] kuromasu = {3,9,3,10,3,11,3,12,3,13,3,14,
+			4,9,4,10,4,11,4,12,4,13,4,14};	//■の座標
+
+	int[]kuti = {};
+
+	int[]jouhou = {};
+	int[]mituketa = new int [3];			//コピペ
+	int[][]ivent = syougai;			//コピペ
+
+	String name = "[教室1]";
+	MapSyori syori = new MapSyori();			//コピペ
+
+	public int[][] map(){				//マップデータ
+		syori.sotowaku(syougai);
+		syori.jouh(syougai,kuromasu,1);
+		syori.kuti(syougai, kuti);
+
+		return syougai;
+	}
+	public int[] getmapjouhou(int id) {
+		syori.mapjouhou(id, jouhou, mituketa);
+		return mituketa;
+	}
+
+	public String getname() {
+		return name;
+	}
+	public int[][] ivent(){
+		return ivent;
+	}
+}
 
