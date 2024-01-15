@@ -18,7 +18,7 @@ class TestWindow extends JFrame implements KeyListener {
 		addKeyListener(this);
 		/*sub.syougai();
 		sub.tekiidou();*/
-		//Event.start();
+		Event.start();
 		sub.syougai();
 	}
 	int Mkirikae = 0;
