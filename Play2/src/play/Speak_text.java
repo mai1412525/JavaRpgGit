@@ -1,19 +1,23 @@
 package play;
-public abstract class Speak_text{//親クラス
+public class Speak_text{//親クラス
 	boolean preese;
 	Speak speak = new Speak();
-	
-	 public abstract void run();
-	 abstract void preese();
+	static String name;
+
+	 public void run() {}
+	 void preese() {}
 	 public boolean getPreese() {
 		 return preese;
+	 }
+	 void setname(String name) {
+		 this.name = name;
 	 }
 }
 
 class Epi0 extends Speak_text{
 	@Override
 	public void run() {
-		preese = true;
+		speak.S(name,1000 );
 		speak.S("Spaceキーを押すと次の会話に進みます。", 30);
 		speak.S("女子生徒A「なんか最近怖いよねー」", 30);
 		speak.S("女子生徒B「なにがー？」", 30);
@@ -21,7 +25,6 @@ class Epi0 extends Speak_text{
 		speak.S("女子生徒B「なにそれぇ」", 100);
 		speak.S("開発中...", 100);
 		speak.S("ここからマップ移動が可能です", 100);
-		preese = false;
 			}
 	@Override
 	void preese() {
@@ -30,7 +33,7 @@ class Epi0 extends Speak_text{
 }
 
 class Epi1 extends Speak_text{
-	public void run() {	
+	public void run() {
 		speak.S("Epi1", 30);
 		speak.S("123456789",20);
 			}
@@ -39,7 +42,7 @@ class Epi1 extends Speak_text{
 		speak.preese();
 	}
 	void synchoronized(){
-		
+
 	}
 }
 class Epi2 extends Speak_text{

@@ -30,7 +30,6 @@ class TestWindow extends JFrame implements KeyListener {
 
 
 
-
 @Override
 public void keyTyped(KeyEvent e) {
 	// TODO 自動生成されたメソッド・スタブ
@@ -51,6 +50,10 @@ public void keyPressed(KeyEvent e) {
 	if(Mkirikae == 3) {
 		int w = key.key(e);
 		Event.setkirikae(w);
+		if(w == 2) {//returnでkirikaeが変更される
+			Event.no();
+			Event.setkey(key);
+		}
 		return;
 	}
 	switch (e.getKeyCode()) {
@@ -97,23 +100,13 @@ public void keyPressed(KeyEvent e) {
 
 	case KeyEvent.VK_SPACE:
 		if(Mkirikae == 1) {
-			System.out.println("選択肢決定押された");
-			//Event.speakPreese();
+			//System.out.println("選択肢決定押された");
 			Event.selectDecision();
 		}
 		if(Mkirikae == 2) {
 			//System.out.println("会話文決定された");
 			Event.setSpeak();
 		}
-			/*if(takusi[i] == "はい") {
-				syoji.setmotiflg(0);
-
-			sub.tansaku(6,3);
-			kirikae = 0;
-			sub.setkirikae(kirikae);
-			syoji.setmoti(0);
-			sub.dispz();
-		}*/
 		break;
 	}
 

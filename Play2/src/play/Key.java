@@ -1,9 +1,6 @@
 package play;
 
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import javax.swing.JFrame;
 
 public class Key {
 
@@ -176,7 +173,7 @@ public class Key {
 				break;
 			case KeyEvent.VK_SPACE:
 				if(sentaku == 0) {
-					flg = 1;
+					flg = 1;//処理決定
 					return 2;
 				}
 				else if(sentaku == 1){

@@ -1,20 +1,18 @@
 package play;
 
-import java.awt.event.KeyEvent;
-
 public class Event extends Thread {
 
 	String name;
 	int number=99;//選択肢の番号を一時保存
 	int Ekirikae=0;//kirikaeの変数管理
 	String[] flag2 = new String[10];//フラグ管理
-	Key key = new Key();
-	Key k;
+	
 
 	select select = new select();
 	
+	Speak_text oya = new Speak_text();
 	Speak_text[] Epi =  {new Epi0(), new Epi1() ,new Epi2(),new Epi3() ,new Epi4()};
-
+	
 
 	public int getEvent() {
 		return Ekirikae;
@@ -26,8 +24,7 @@ public class Event extends Thread {
 	public void run() {//並列処理
 		System.out.println("名前を入力してください");
 		Ekirikae = 3;
-		//Key.key(k);
-		/*
+		rp();
 		Ekirikae = 2;
 		Epi[0].run();
 		Epi[1].run();
@@ -41,28 +38,21 @@ public class Event extends Thread {
 			Epi[3].run();
 		}
 		Epi[4].run();
-		Ekirikae = 0;*/
+		Ekirikae = 0;
 
 		}
 
 
 	void rp() {//すべての処理が終わるまでループ
-		for(int i=0;i<Epi.length;) {
-			if(Epi[i].getPreese() == false) {
-				break;
-			}
-			else {
-				synchronized(this) {
-					try {
-						wait();
-					}
-					catch (InterruptedException e) {
-					}
-					return;
-				}
+		synchronized(this) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
 			}
 		}
-
+	}
+	synchronized void no() {
+		notify();
 	}
 	//Speak(会話)
 	public void setSpeak() {//Event処理をすすめる
@@ -82,6 +72,10 @@ public class Event extends Thread {
 		number = select.getNumber();
 		//System.out.println("あなたは"+number+"を押しました。");
 		select.selectPreese();
+	}
+	
+	void setkey(Key key) {
+		oya.setname(key.getname());
 	}
 }
 
