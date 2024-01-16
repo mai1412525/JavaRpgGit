@@ -24,16 +24,15 @@ public class Speak {
 	}
 		void rp() {
 			if(keyWait==true) {
-			synchronized(this) {
-				try {
-					wait();
-				} catch (InterruptedException e) {
+				synchronized(this) {
+					try {
+						wait();
+					} catch (InterruptedException e) {
+					}
+					return;
+				}            
 			}
-				return;
-		}            
-	}
-
-	}
+		}
 		synchronized void preese() {
 			notify();
 		}
