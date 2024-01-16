@@ -27,7 +27,7 @@ public class Speak {
 				synchronized(this) {
 					try {
 						wait();
-					} catch (InterruptedException e) {
+					} catch (InterruptedException e){
 					}
 					return;
 				}            
