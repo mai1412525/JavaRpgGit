@@ -40,7 +40,7 @@ public class Event extends Thread {
 		Epi[4].run();
 		Ekirikae = 0;
 
-		}
+	}
 
 
 	void rp() {//すべての処理が終わるまでループ

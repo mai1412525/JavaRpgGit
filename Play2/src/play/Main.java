@@ -30,99 +30,98 @@ class TestWindow extends JFrame implements KeyListener {
 
 
 
-@Override
-public void keyTyped(KeyEvent e) {
-	// TODO 自動生成されたメソッド・スタブ
-
-}
-
-@Override
-public void keyPressed(KeyEvent e) {
-	int i = 0;
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO 自動生成されたメソッド・スタブ
 	
+	}
 	
-	// TODO 自動生成されたメソッド・スタブ
-	Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力
-	//System.out.println("今のMain切り替え"+Mkirikae);
-	if(Mkirikae == 0) {
-		sub.dispz();
-	}
-	if(Mkirikae == 3) {
-		int w = key.key(e);
-		Event.setkirikae(w);
-		if(w == 2) {//returnでkirikaeが変更される
-			Event.no();
-			Event.setkey(key);
-		}
-		return;
-	}
-	switch (e.getKeyCode()) {
-	case KeyEvent.VK_UP:
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int i = 0;
+		
+		
+		// TODO 自動生成されたメソッド・スタブ
+		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力
+		//System.out.println("今のMain切り替え"+Mkirikae);
 		if(Mkirikae == 0) {
-			
-			sub.idou(5);
 			sub.dispz();
-		}                                        
-		else if(Mkirikae == 1) {
-			if(i > 0) {
-				i--;
+		}
+		if(Mkirikae == 3) {
+			int w = key.key(e);
+			Event.setkirikae(w);
+			if(w == 2) {//returnでkirikaeが変更される
+				Event.no();
+				Event.setkey(key);
 			}
-			kaigyou();
-			Event.setSelectNumber(i);
-
-
-			//senta.sentaku(i, takusi);
+			return;
 		}
-		break;
-
-	case KeyEvent.VK_DOWN:
-		if(Mkirikae == 0) {
-			sub.idou(2);
+		switch (e.getKeyCode()) {
+			case KeyEvent.VK_UP:
+				if(Mkirikae == 0) {
+					sub.idou(5);
+					sub.dispz();
+				}                                        
+				else if(Mkirikae == 1) {
+					if(i > 0) {
+						i--;
+					}
+					kaigyou();
+					Event.setSelectNumber(i);
+		
+		
+					//senta.sentaku(i, takusi);
+				}
+				break;
+		
+			case KeyEvent.VK_DOWN:
+				if(Mkirikae == 0) {
+					sub.idou(2);
+				}
+				else if(Mkirikae == 1) {
+					i++;
+					kaigyou();
+					Event.setSelectNumber(i);
+				}
+				break;
+		
+			case KeyEvent.VK_RIGHT:
+				if(Mkirikae == 0) {
+					sub.idou(3);
+				}
+				break;
+		
+			case KeyEvent.VK_LEFT:
+				if(Mkirikae == 0) {
+					sub.idou(1);
+				}
+				break;
+		
+			case KeyEvent.VK_SPACE:
+				if(Mkirikae == 1) {
+					//System.out.println("選択肢決定押された");
+					Event.selectDecision();
+				}
+				if(Mkirikae == 2) {
+					//System.out.println("会話文決定された");
+					Event.setSpeak();
+				}
+				break;
 		}
-		else if(Mkirikae == 1) {
-				i++;
-			kaigyou();
-			Event.setSelectNumber(i);
-		}
-		break;
-
-	case KeyEvent.VK_RIGHT:
-		if(Mkirikae == 0) {
-			sub.idou(3);
-		}
-		break;
-
-	case KeyEvent.VK_LEFT:
-		if(Mkirikae == 0) {
-			sub.idou(1);
-		}
-		break;
-
-	case KeyEvent.VK_SPACE:
-		if(Mkirikae == 1) {
-			//System.out.println("選択肢決定押された");
-			Event.selectDecision();
-		}
-		if(Mkirikae == 2) {
-			//System.out.println("会話文決定された");
-			Event.setSpeak();
-		}
-		break;
+	
 	}
-
-}
-
-void kaigyou() {
-	for(int i=0;i<20;i++) {
-		System.out.println("");
+	
+	void kaigyou() {
+		for(int i=0;i<20;i++) {
+			System.out.println("");
+		}
 	}
-}
-
-@Override
-public void keyReleased(KeyEvent e) {
-	// TODO 自動生成されたメソッド・スタブ
-
-}
+	
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO 自動生成されたメソッド・スタブ
+	
+	}
 
 }
 
