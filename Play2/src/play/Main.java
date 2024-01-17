@@ -26,7 +26,9 @@ class TestWindow extends JFrame implements KeyListener {
 	sub sub = new sub();
 	Key key = new Key();
 	Event Event = new Event();
-	
+	password pass = new password();
+
+	tek tek = new tek();
 
 
 
@@ -42,10 +44,24 @@ class TestWindow extends JFrame implements KeyListener {
 		
 		
 		// TODO 自動生成されたメソッド・スタブ
-		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力
+		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード
 		//System.out.println("今のMain切り替え"+Mkirikae);
 		if(Mkirikae == 0) {
 			sub.dispz();
+		}
+		if(Mkirikae == 5) {
+			int w = pass.key(e);
+			sub.dispz();
+			System.out.println("鍵がかかっている");
+			System.out.println("パスワードを入力してください");
+			System.out.println(pass.getname());
+			if(w == 1) {
+				sub.pass(pass.getname());
+				Mkirikae = 4;
+				Event.setkirikae(Mkirikae);
+				pass.reset();
+			}
+			return;
 		}
 		if(Mkirikae == 3) {
 			int w = key.key(e);
@@ -59,7 +75,15 @@ class TestWindow extends JFrame implements KeyListener {
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_UP:
 				if(Mkirikae == 0) {
-					sub.idou(5);
+					int w = sub.idou(5);
+					if(w == 2) {
+						Mkirikae = 4;
+						Event.setkirikae(Mkirikae);
+					}
+					else if(w == 3) {
+						Mkirikae = 5;
+						Event.setkirikae(Mkirikae);
+					}
 					sub.dispz();
 				}                                        
 				else if(Mkirikae == 1) {
@@ -76,7 +100,15 @@ class TestWindow extends JFrame implements KeyListener {
 		
 			case KeyEvent.VK_DOWN:
 				if(Mkirikae == 0) {
-					sub.idou(2);
+					int w = sub.idou(2);
+					if(w == 2) {
+						Mkirikae = 4;
+						Event.setkirikae(Mkirikae);
+					}
+					else if(w == 3) {
+						Mkirikae = 5;
+						Event.setkirikae(Mkirikae);
+					}
 				}
 				else if(Mkirikae == 1) {
 					i++;
@@ -87,13 +119,29 @@ class TestWindow extends JFrame implements KeyListener {
 		
 			case KeyEvent.VK_RIGHT:
 				if(Mkirikae == 0) {
-					sub.idou(3);
+					int w = sub.idou(3);
+					if(w == 2) {
+						Mkirikae = 4;
+						Event.setkirikae(Mkirikae);
+					}
+					else if(w == 3) {
+						Mkirikae = 5;
+						Event.setkirikae(Mkirikae);
+					}
 				}
 				break;
 		
 			case KeyEvent.VK_LEFT:
 				if(Mkirikae == 0) {
-					sub.idou(1);
+					int w = sub.idou(1);
+					if(w == 2) {
+						Mkirikae = 4;
+						Event.setkirikae(Mkirikae);
+					}
+					else if(w == 3) {
+						Mkirikae = 5;
+						Event.setkirikae(Mkirikae);
+					}
 				}
 				break;
 		
@@ -106,8 +154,14 @@ class TestWindow extends JFrame implements KeyListener {
 					//System.out.println("会話文決定された");
 					Event.setSpeak();
 				}
+				if(Mkirikae == 4) {
+					Mkirikae = 0;
+					Event.setkirikae(Mkirikae);
+					sub.dispz();
+				}
 				break;
 		}
+		tek.kiri(Mkirikae);
 	
 	}
 	
