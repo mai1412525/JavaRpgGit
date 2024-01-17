@@ -17,7 +17,7 @@ public class Speak_text{//親クラス
 class Epi0 extends Speak_text{
 	@Override
 	public void run() {
-		//speak.S("",30);//テンプレ
+		speak.S("",30);//テンプレ
 		speak.S("Spaceキーを押すと次の会話に進みます。", 30);
 		speak.S("女子生徒A「なんか最近怖いよねー」", 30);
 		speak.S("女子生徒B「なにがー？」", 30);
