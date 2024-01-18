@@ -259,7 +259,7 @@ static int jikiy = 1,jikix = 1;
 			}
 		}
 		else if(itiji[jikiya][jikixa] == 4) {
-			if(tekiy == -1 && tekix == -1) {
+			if(tekiy == -1 && tekix == -1 && time == -1) {
 				System.out.println("ゴゴゴゴゴゴゴゴ▼");
 				tekiy = 8;
 				tekix = 8;
