@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 class TestWindow extends JFrame implements KeyListener {
-
 	TestWindow(String title, int width, int height) {
 		super(title);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -22,12 +21,14 @@ class TestWindow extends JFrame implements KeyListener {
 		sub.syougai();
 	}
 	int Mkirikae = 0;
+	int i = 0;
 	boolean select = false;//選択肢が何回も並列実行をしないようにするため用
 	sub sub = new sub();
 	Key key = new Key();
 	Event Event = new Event();
 	password pass = new password();
 	Menyu menyu = new Menyu();
+	Title title = new Title();
 
 	tek tek = new tek();
 
@@ -41,12 +42,12 @@ class TestWindow extends JFrame implements KeyListener {
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		int i = 0;
+		
 		
 		
 		// TODO 自動生成されたメソッド・スタブ
 		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード、6がメニュー
-		//System.out.println("今のMain切り替え"+Mkirikae);
+		System.out.println("今のMain切り替え"+Mkirikae);
 		if(Mkirikae == 0) {
 			sub.dispz();
 		}
@@ -73,6 +74,26 @@ class TestWindow extends JFrame implements KeyListener {
 			}
 			return;
 		}
+		if(Mkirikae == 7) {
+			int w= Event.select.gettitleNumber();
+			Event.select.setSelect("はじめる,セーブ,終わる","ここにタイトル");
+			if(w == 0) {
+				Event.no();
+			}
+			else if(w == 1) {
+				title.loaddisplay();
+				int a = key.key(e);
+				Event.setkirikae(w);
+				if(a == 2) {//returnでkirikaeが変更される
+					Event.no();
+					title.load(key);
+				}
+				return;
+			}
+			
+			
+			
+		}
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_UP:
 				if(Mkirikae == 0) {
@@ -93,14 +114,20 @@ class TestWindow extends JFrame implements KeyListener {
 					}
 					kaigyou();
 					Event.setSelectNumber(i);
-		
-		
-					//senta.sentaku(i, takusi);
+
 				}
 				else if(Mkirikae == 6) {
 					menyu.msent();
 					sub.dispz();
 					menyu.disp();
+				}
+				
+				else if(Mkirikae == 7) {
+					if(i > 0) {
+						i--;
+					}
+					kaigyou();
+					Event.setSelectNumber(i);
 				}
 				break;
 		
@@ -125,6 +152,12 @@ class TestWindow extends JFrame implements KeyListener {
 					menyu.psent();
 					sub.dispz();
 					menyu.disp();
+				}
+				else if(Mkirikae == 7) {
+					i++;
+					System.out.print(i);
+					kaigyou();
+					Event.setSelectNumber(i);
 				}
 				break;
 		

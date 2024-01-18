@@ -1,7 +1,7 @@
 package play;
 
 public class Event extends Thread {
-
+	
 	String name;
 	int number=99;//選択肢の番号を一時保存
 	String[] flag2 = new String[10];//フラグ管理
@@ -20,7 +20,7 @@ public class Event extends Thread {
 
 	}
 
-	
+	Title title = new Title();
 	select select = new select();
 	Speak_text oya = new Speak_text();
 	Speak_text OyaEpi = new Speak_text();
@@ -35,6 +35,9 @@ public class Event extends Thread {
 	}
 
 	public void run() {//並列処理
+		
+		Ekirikae = 7;
+		rp();
 		System.out.println("名前を入力してください");
 		Ekirikae = 3;
 		rp();
@@ -106,6 +109,10 @@ public class Event extends Thread {
 	//Key(名前入力)
 	void setkey(Key key) {
 		OyaEpi.setname(key.getname());
+	}
+	
+	public void setLoad(int[] flag , int[] item) {
+		
 	}
 
 }

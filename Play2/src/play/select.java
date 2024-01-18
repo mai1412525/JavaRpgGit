@@ -2,10 +2,11 @@ package play;
 
 
 public class select {
-
+	
 	String[] moji_join;
 	String title;
     int select_number;//Mainで使う用
+    int finalnumber=99;//Titleで使うよう
     public void setSelect(String moji,String title) {//設定
     	String[] moji_Split = moji.split(",");
     	String[] moji_join = new String[moji_Split.length*2];
@@ -20,7 +21,7 @@ public class select {
     	this.moji_join = moji_join;
     	this.title = title;
     	dispSelect(0);//選択肢表示
-    	rp();
+    	//rp();
     }
 
 	public void dispSelect(int sentaku) {//表示
@@ -40,7 +41,9 @@ public class select {
 	}
 
 	public int getNumber() {
+		finalnumber = select_number;
 		return select_number;
+		
 	}
 	void rp() {
 		synchronized(this) {
@@ -54,4 +57,16 @@ public class select {
 	synchronized void selectPreese() {
 		notify();
 	}
+	public int gettitleNumber() {
+	if(finalnumber != 99) {
+		notify();
+		return finalnumber;
+	}
+	else {
+		return 7;
+	}
+		
+	}
+
+
 }
