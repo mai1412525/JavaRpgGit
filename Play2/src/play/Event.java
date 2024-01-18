@@ -2,6 +2,7 @@ package play;
 
 public class Event extends Thread {
 
+
 	String name;
 	int number=99;//選択肢の番号を一時保存
 	String[] flag2 = new String[10];//フラグ管理
@@ -52,7 +53,9 @@ public class Event extends Thread {
 			flag[0] = 0;//教官問い掛けNo
 			item[0]=1;//部室のカギYes
 		}
+		Ekirikae = 1;
 		select.setSelect("二手に分かれる,二手に分かれない","「「分かれたほういいのかな」」");
+		Ekirikae = 2;
 		if(number == 0) {
 			Epi[4].run();
 			flag[1] = 1;//二手に分かれるYes
@@ -62,8 +65,8 @@ public class Event extends Thread {
 			flag[0] = 0;//二手に分かれないNo
 			item[0]=1;//部室のカギYes
 		}
-		
-		
+
+
 		Ekirikae = 0;
 
 	}
@@ -105,7 +108,7 @@ public class Event extends Thread {
 	void setkey(Key key) {
 		OyaEpi.setname(key.getname());
 	}
-	
+
 }
 
 

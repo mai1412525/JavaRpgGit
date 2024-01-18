@@ -4,6 +4,7 @@ public class Speak_text{//親クラス
 	Speak speak = new Speak();
 	static String name;
 
+
 	 public void run() {}
 	 void preese() {}
 	/* public boolean getPreese() {
@@ -18,7 +19,7 @@ class Epi0 extends Speak_text{
 	@Override
 	public void run() {
 		speak.S("",30);
-		
+
 		speak.S("Spaceキーを押すと次の会話に進みます。", 30);
 		speak.S("女子生徒A「なんか最近怖いよねー」", 30);
 		speak.S("女子生徒B「なにがー？」", 30);
@@ -115,8 +116,8 @@ class Epi1Yes extends Speak_text{
 		speak.S("一同：「「！？」」",30);
 		speak.S("先生「異論はないな？」",30);
 		speak.S("一同：「ないです…。」",30);
-		
-		
+
+
 			}
 	@Override
 	void preese() {
@@ -140,8 +141,8 @@ class Epi1No extends Speak_text{
 		speak.S("先生「俺の机は”左奥から４番目だ」",30);
 		speak.S(name+"「わかりました。」",30);
 		speak.S("「部室の鍵」を手に入れた。",30);
-		
-		
+
+
 			}
 	@Override
 	void preese() {
@@ -166,7 +167,7 @@ class Epi1_2 extends Speak_text{
 		speak.S("ゆき「わたしはたけし君に賛成〜。そのほうが探索効率があがるからね」",30);
 		if(play.Event.flag[0]==1) {
 			speak.S("先生「おれは部室に残って頭とやらを探しておく」",30);
-		} 
+		}
 		speak.S("みさき"+name+"くん。君はどう思う？君に任せるよ」",30);
 		speak.S("・・・",1000);
 			}
