@@ -20,7 +20,7 @@ public class Event extends Thread {
 
 	}
 
-	
+	Title title = new Title();
 	select select = new select();
 	Speak_text oya = new Speak_text();
 	Speak_text OyaEpi = new Speak_text();
@@ -35,6 +35,8 @@ public class Event extends Thread {
 	}
 
 	public void run() {//並列処理
+		Ekirikae = 7;
+		rp();
 		System.out.println("名前を入力してください");
 		Ekirikae = 3;
 		rp();
@@ -106,6 +108,10 @@ public class Event extends Thread {
 	//Key(名前入力)
 	void setkey(Key key) {
 		OyaEpi.setname(key.getname());
+	}
+	
+	public void setLoad(int[] flag , int[] item) {
+		
 	}
 
 }
