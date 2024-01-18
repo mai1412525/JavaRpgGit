@@ -286,9 +286,17 @@ class kyousitu_1 extends MapMam {
 	int yoko = 24;
 	int[][]syougai = new int[tate][yoko];				//マスごとのデータ
 	int[] kuromasu = {3,9,3,10,3,11,3,12,3,13,3,14,
-			4,9,4,10,4,11,4,12,4,13,4,14};	//■の座標
+			4,9,4,10,4,11,4,12,4,13,4,14,
+			10,3,10,6,10,9,10,12,10,15,10,18,10,21,
+			13,3,13,6,13,9,13,12,13,15,13,18,13,21,
+			17,3,17,6,17,9,17,12,17,15,17,18,17,21,
+			20,3,20,6,20,9,20,12,20,15,20,18,20,21,
+			22,1,22,2,22,3,
+			23,1,23,2,23,3,
+			24,1,24,3,
+			25,1,25,2,25,3};	//■の座標
 
-	int[]kuti = {};
+	int[]kuti = {-21,3,4,23,24};
 
 	int[]jouhou = {};
 	int[]mituketa = new int [3];			//コピペ
@@ -316,6 +324,15 @@ class kyousitu_1 extends MapMam {
 	}
 	public int[][] ivent(){
 		return ivent;
+	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
 	}
 }
 
