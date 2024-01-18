@@ -9,7 +9,7 @@ public class Key {
 	int sentaku = 0;
 	int gengo = 1;			//0abc	１あいう  （実装しない）
 	sen sen = new sen();
-	
+
 	String getname() {
 		return name;
 	}
@@ -144,7 +144,7 @@ public class Key {
 			}
 			sen.taku(sentaku,name);
 			flg = 0;
-			
+
 			//flg = 2;
 		/*case KeyEvent.VK_ESCAPE:
 			flg = 0;
@@ -210,7 +210,7 @@ public class Key {
 					name = sub.nn(name);
 				}
 				else if(w.equals("n")){
-					
+
 					name = sub.n(name);
 				}
 			}
@@ -835,6 +835,26 @@ class syorisou{
 		case "bo":
 			name = name.substring(0,name.length() - 2);
 			name += "ぼ";
+			break;
+		case "pa":
+			name = name.substring(0,name.length() - 3);
+			name += "ぱ";
+			break;
+		case "pi":
+			name = name.substring(0,name.length() - 3);
+			name += "ぴ";
+			break;
+		case "pu":
+			name = name.substring(0,name.length() - 3);
+			name += "ぷ";
+			break;
+		case "pe":
+			name = name.substring(0,name.length() - 3);
+			name += "ぺ";
+			break;
+		case "po":
+			name = name.substring(0,name.length() - 3);
+			name += "ぽ";
 			break;
 		case "ja":
 			name = name.substring(0,name.length() - 2);
