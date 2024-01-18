@@ -22,6 +22,7 @@ class TestWindow extends JFrame implements KeyListener {
 	}
 	int Mkirikae = 0;
 	int i = 0;
+	boolean tit = false;
 	boolean select = false;//選択肢が何回も並列実行をしないようにするため用
 	sub sub = new sub();
 	Key key = new Key();
@@ -75,8 +76,11 @@ class TestWindow extends JFrame implements KeyListener {
 			return;
 		}
 		if(Mkirikae == 7) {
+			if(tit==false) {
+				Event.select.setSelect("はじめる,ロード,終わる","ここにタイトル");
+				tit = true;
+			}
 			int w= Event.select.gettitleNumber();
-			Event.select.setSelect("はじめる,セーブ,終わる","ここにタイトル");
 			if(w == 0) {
 				Event.no();
 			}
@@ -88,11 +92,11 @@ class TestWindow extends JFrame implements KeyListener {
 					Event.no();
 					title.load(key);
 				}
-				return;
 			}
+			Event.setSelectNumber(w);
 			
 			
-			
+			return;
 		}
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_UP:
@@ -226,7 +230,12 @@ class TestWindow extends JFrame implements KeyListener {
 					if(w != 0 && w != -1) {
 						menyu.disp();
 					}
+			
 					
+				}
+				else if(Mkirikae == 7) {
+					//System.out.println("会話文決定された");
+					Event.selectDecision();
 				}
 				break;
 		}
