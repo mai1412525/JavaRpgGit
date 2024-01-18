@@ -27,6 +27,7 @@ class TestWindow extends JFrame implements KeyListener {
 	Key key = new Key();
 	Event Event = new Event();
 	password pass = new password();
+	Menyu menyu = new Menyu();
 
 	tek tek = new tek();
 
@@ -44,7 +45,7 @@ class TestWindow extends JFrame implements KeyListener {
 		
 		
 		// TODO 自動生成されたメソッド・スタブ
-		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード
+		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード、6がメニュー
 		//System.out.println("今のMain切り替え"+Mkirikae);
 		if(Mkirikae == 0) {
 			sub.dispz();
@@ -96,6 +97,11 @@ class TestWindow extends JFrame implements KeyListener {
 		
 					//senta.sentaku(i, takusi);
 				}
+				else if(Mkirikae == 6) {
+					menyu.msent();
+					sub.dispz();
+					menyu.disp();
+				}
 				break;
 		
 			case KeyEvent.VK_DOWN:
@@ -114,6 +120,11 @@ class TestWindow extends JFrame implements KeyListener {
 					i++;
 					kaigyou();
 					Event.setSelectNumber(i);
+				}
+				else if(Mkirikae == 6) {
+					menyu.psent();
+					sub.dispz();
+					menyu.disp();
 				}
 				break;
 		
@@ -150,19 +161,43 @@ class TestWindow extends JFrame implements KeyListener {
 					//System.out.println("選択肢決定押された");
 					Event.selectDecision();
 				}
-				if(Mkirikae == 2) {
+				else if(Mkirikae == 2) {
 					//System.out.println("会話文決定された");
 					Event.setSpeak();
 				}
-				if(Mkirikae == 4) {
+				else if(Mkirikae == 4) {
 					Mkirikae = 0;
 					Event.setkirikae(Mkirikae);
 					sub.dispz();
 				}
+				else if(Mkirikae == 0 && menyu.setua() == 0) {
+					Mkirikae = 6;
+					Event.setkirikae(Mkirikae);
+					sub.dispz();
+					menyu.disp();
+				}
+				else {
+					int w = menyu.enter();
+					if(w != 0) {
+						sub.dispz();
+					}
+					if(w == 1) {
+						Mkirikae = 6;
+						Event.setkirikae(Mkirikae);
+					}
+					else if(w == -1) {
+						Mkirikae = 0;
+						Event.setkirikae(Mkirikae);
+						sub.dispz();
+					}
+					if(w != 0 && w != -1) {
+						menyu.disp();
+					}
+					
+				}
 				break;
 		}
 		tek.kiri(Mkirikae);
-	
 	}
 	
 	void kaigyou() {
