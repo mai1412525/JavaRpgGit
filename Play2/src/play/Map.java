@@ -335,4 +335,64 @@ class kyousitu_1 extends MapMam {
 		}
 	}
 }
+class PC extends MapMam {
+
+	int tate = 16;
+	int yoko = 19;
+	int[][]syougai = new int[tate][yoko];
+	int[] kuromasu = {1,1,1,2,1,3,1,4,1,5,1,6,1,7,1,8,1,9,1,10,1,11,1,12,1,13,1,14,1,15,
+					2,1,
+					6,4,7,4,8,4,9,4,10,4,11,4,12,4,
+					6,3,8,3,
+					14,17,14,18,
+					15,17,15,18,
+					4,9,4,11,4,13,
+					5,8,5,9,5,10,5,11,5,12,5,13,5,14,
+					6,8,6,9,6,10,6,11,6,12,6,13,6,14,
+					7,9,7,11,7,13,
+					10,9,10,11,10,13,
+					11,8,11,9,11,10,11,11,11,12,11,13,11,14,
+					12,8,12,9,12,10,12,11,12,12,12,13,12,14,
+					13,9,13,11,13,13};
+
+	int[]kuti = {-11,16,17,18};
+
+	int[]jouhou = {};
+	int[]mituketa = new int [3];			//コピペ
+	int[][]ivent = syougai;			//コピペ
+
+	String name = "[PC1]";
+	MapSyori syori = new MapSyori();			//コピペ
+
+	{
+	}
+	public int[][] map(){				//マップデータ
+		syori.sotowaku(syougai);
+		syori.jouh(syougai,kuromasu,1);
+		syori.kuti(syougai, kuti);
+
+		return syougai;
+	}
+	public int[] getmapjouhou(int id) {
+		syori.mapjouhou(id, jouhou, mituketa);
+		return mituketa;
+	}
+
+	public String getname() {
+		return name;
+	}
+	public int[][] ivent(){
+		return ivent;
+	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
+	}
+}
+
 
