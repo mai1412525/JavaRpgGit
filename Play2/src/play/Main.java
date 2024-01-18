@@ -209,7 +209,7 @@ class TestWindow extends JFrame implements KeyListener {
 					sub.dispz();
 					menyu.disp();
 				}
-				else {
+				else if(Mkirikae == 0){
 					int w = menyu.enter();
 					if(w != 0) {
 						sub.dispz();
