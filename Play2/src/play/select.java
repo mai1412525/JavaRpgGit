@@ -2,7 +2,7 @@ package play;
 
 
 public class select {
-
+	
 	String[] moji_join;
 	String title;
     int select_number;//Mainで使う用

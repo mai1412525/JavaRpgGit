@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 class TestWindow extends JFrame implements KeyListener {
-
 	TestWindow(String title, int width, int height) {
 		super(title);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
