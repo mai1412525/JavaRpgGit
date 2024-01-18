@@ -4,21 +4,34 @@ public class Event extends Thread {
 
 	String name;
 	int number=99;//選択肢の番号を一時保存
-	int Ekirikae=0;//kirikaeの変数管理
 	String[] flag2 = new String[10];//フラグ管理
 
+	int Ekirikae=0;//kirikae(モード)の変数管理
+	int[] flag = new int[8];//フラグ管理
+	int[] item =  new int[15];//アイテム管理
+
+	Event(){//コンストラクタ(ここでEventフラグをすべて0にする)
+		for(int i=0;i<flag.length;i++) {
+			flag[i]= 0;
+		}
+		for(int i=0;i<item.length;i++) {
+			item[i]= 0;
+		}
+
+	}//github.com/mai1412525/JavaRpgGit
 
 	select select = new select();
 
 	Speak_text oya = new Speak_text();
+	Speak_text OyaEpi = new Speak_text();//github.com/mai1412525/JavaRpgGit
 	Speak_text[] Epi =  {new Epi0(), new Epi1() ,new Epi2(),new Epi3() ,new Epi4()};
 
 
 	public int getEvent() {
 		return Ekirikae;
 	}
-	public void setkirikae(int i) {
-		Ekirikae = i;
+	void setkirikae(int w) {
+		Ekirikae = w;
 	}
 
 	public void run() {//並列処理
@@ -74,8 +87,10 @@ public class Event extends Thread {
 		select.selectPreese();
 	}
 
+
+	//Key(名前入力)//github.com/mai1412525/JavaRpgGit
 	void setkey(Key key) {
-		oya.setname(key.getname());
+		OyaEpi.setname(key.getname());
 	}
 }
 
