@@ -7,8 +7,8 @@ public class Event extends Thread {
 	String[] flag2 = new String[10];//フラグ管理
 
 	int Ekirikae=0;//kirikae(モード)の変数管理
-	int[] flag = new int[8];//フラグ管理
-	int[] item =  new int[15];//アイテム管理
+	static int[] flag = new int[8];//フラグ管理
+	static int[] item =  new int[15];//アイテム管理
 
 	Event(){//コンストラクタ(ここでEventフラグをすべて0にする)
 		for(int i=0;i<flag.length;i++) {
@@ -18,13 +18,13 @@ public class Event extends Thread {
 			item[i]= 0;
 		}
 
-	}//github.com/mai1412525/JavaRpgGit
+	}
 
 	select select = new select();
 
 	Speak_text oya = new Speak_text();
-	Speak_text OyaEpi = new Speak_text();//github.com/mai1412525/JavaRpgGit
-	Speak_text[] Epi =  {new Epi0(), new Epi1() ,new Epi2(),new Epi3() ,new Epi4()};
+	Speak_text OyaEpi = new Speak_text();
+	Speak_text[] Epi =  {new Epi0(), new Epi1Yes() ,new Epi1No(),new Epi1_2(),new Epi1_2Yes()};
 
 
 	public int getEvent() {
@@ -40,17 +40,30 @@ public class Event extends Thread {
 		rp();
 		Ekirikae = 2;
 		Epi[0].run();
-		Epi[1].run();
 		Ekirikae = 1;
-		select.setSelect("はい,いいえ","テスト");
+		select.setSelect("本当のことをいう,嘘をつく","「「どうしよう...」」");
 		Ekirikae = 2;
 		if(number == 0) {
-			Epi[2].run();
+			Epi[1].run();
+			flag[0] = 1;//教官問い掛けYes
 		}
 		else if(number == 1) {
-			Epi[3].run();
+			Epi[2].run();
+			flag[0] = 0;//教官問い掛けNo
+			item[0]=1;//部室のカギYes
 		}
-		Epi[4].run();
+		select.setSelect("二手に分かれる,二手に分かれない","「「分かれたほういいのかな」」");
+		if(number == 0) {
+			Epi[4].run();
+			flag[1] = 1;//二手に分かれるYes
+		}
+		else if(number == 1) {
+			Epi[5].run();
+			flag[0] = 0;//二手に分かれないNo
+			item[0]=1;//部室のカギYes
+		}
+		
+		
 		Ekirikae = 0;
 
 	}
@@ -88,10 +101,11 @@ public class Event extends Thread {
 	}
 
 
-	//Key(名前入力)//github.com/mai1412525/JavaRpgGit
+	//Key(名前入力)
 	void setkey(Key key) {
 		OyaEpi.setname(key.getname());
 	}
+	
 }
 
 

@@ -6,9 +6,9 @@ public class Speak_text{//親クラス
 
 	 public void run() {}
 	 void preese() {}
-	 public boolean getPreese() {
+	/* public boolean getPreese() {
 		 return preese;
-	 }
+	 }*/
 	 void setname(String name) {
 		 this.name = name;
 	 }
@@ -17,7 +17,8 @@ public class Speak_text{//親クラス
 class Epi0 extends Speak_text{
 	@Override
 	public void run() {
-		speak.S("",30);//テンプレ
+		speak.S("",30);
+		
 		speak.S("Spaceキーを押すと次の会話に進みます。", 30);
 		speak.S("女子生徒A「なんか最近怖いよねー」", 30);
 		speak.S("女子生徒B「なにがー？」", 30);
@@ -50,10 +51,10 @@ class Epi0 extends Speak_text{
 		speak.S("みさき「今日も具合が悪いそうで...」",30);
 		speak.S("先生「...そうか。明日は出席するように伝えてくれ。それでは私は用事があるのでこれで失礼させてもらう。」",30);
 		speak.S("一同：「お疲れ様でーす」",30);
-		speak.S("・　・　・",50);
+		speak.S("・　・　・",200);
 		speak.S("みさき「七不思議についてなんだけどさ、ここ最近噂をよく聞くようになったんだよね。」",30);
 		speak.S("ゆき「私も。」",30);
-		speak.S(name+"（主人公）「僕も。」",30);
+		speak.S(name+"「僕も。」",30);
 		speak.S("たけし「おれも。」",30);
 		speak.S("みさき「私その噂をメモにまとめておいたんだ。みんなの分もあるからあげるよ。」",30);
 		speak.S(name+"「ありがとう。」",30);
@@ -95,6 +96,7 @@ class Epi0 extends Speak_text{
 		speak.S("先生「何してるんだ？」",30);
 		speak.S("一同：「うわぁ！」",30);
 		speak.S(name+"「「どうしよう？」」",30);
+		speak.S("・・・",1000);
 			}
 	@Override
 	void preese() {
@@ -102,10 +104,19 @@ class Epi0 extends Speak_text{
 	}
 }
 
-class Epi1 extends Speak_text{
+class Epi1Yes extends Speak_text{
 	public void run() {
-		speak.S("Epi1", 30);
-		speak.S("123456789",20);
+		speak.S(name + "「ここ最近よく耳にする噂を調べに来たんです。」",30);
+		speak.S("一同：「「"+name+"！？」」",30);
+		speak.S("先生「こんな時間に学校に来るのは感心しないが、」",30);
+		speak.S("先生「「ここ最近噂のせいで生徒の授業の妨げになり始めるほどに大きくなっている」」",30);
+		speak.S("先生「わかった。入ることを許可する」",30);
+		speak.S("先生「ただし、おれも付き添う。」",30);
+		speak.S("一同：「「！？」」",30);
+		speak.S("先生「異論はないな？」",30);
+		speak.S("一同：「ないです…。」",30);
+		
+		
 			}
 	@Override
 	void preese() {
@@ -115,31 +126,56 @@ class Epi1 extends Speak_text{
 
 	}
 }
-class Epi2 extends Speak_text{
+class Epi1No extends Speak_text{
 	@Override
 	public void run() {
-		preese = true;
-		speak.S("はいがおされました", 30);
-		speak.S("わーい", 30);
+		speak.S(name+"「部室に忘れ物をして、一人で行くのは怖かったのでみんなに来てもらったところです。」",30);
+		speak.S("たけし  ゆき「そ、そうなんです…」",30);
+		speak.S("先生「みさき、そうなのか？」",30);
+		speak.S("みさき「はい、"+name+"に頼み込まれまして…」",30);
+		speak.S("先生「そうか、ちょうど俺も忘れ物を取りに来てな、とってきてやろうか？」",30);
+		speak.S(name+"「いえ、大丈夫です。」",30);
+		speak.S("先生「取ったら早く帰るんだぞ。カギは渡しておく。カギは俺の机の上においておけ」",30);
+		speak.S(name+"「先生の机はどこなんですか？」",30);
+		speak.S("先生「俺の机は”左奥から４番目だ」",30);
+		speak.S(name+"「わかりました。」",30);
+		speak.S("「部室の鍵」を手に入れた。",30);
+		
+		
 			}
 	@Override
 	void preese() {
 		speak.preese();
 	}
 }
-class Epi3 extends Speak_text{
+class Epi1_2 extends Speak_text{
 	@Override
 	public void run() {
-		preese = true;
-		speak.S("いいえがおされました", 30);
-		speak.S("おーのー", 30);
+		speak.S("[オカ研部室]",30);
+		if(play.Event.flag[0]==1) {
+			speak.S(name+"「「まさか先生がついてくるとはね…」」",30);
+			speak.S("先生「それでどうするんだ？",30);
+		}
+		speak.S("みさき「よしっ」",30);
+		speak.S(name+"「それってこれ？頭ないけど」",30);
+		speak.S(name+"は頭のない泥人形に指を刺した。",30);
+		speak.S("ゆき「ヒァ！？」",30);
+		speak.S("みさき「そんなはずは…。まあ、0時まで時間はあるし、頭を探しつつほかの七不思議を調査しちゃおう！」",30);
+		speak.S("たけし「二手に分かれる？ほ、ほら、そのほうが早く解決して帰れるじゃん？」",30);
+		speak.S("みさき「わたしは反対かなぁ。なぜならすべての七不思議を見たいからね！！」",30);
+		speak.S("ゆき「わたしはたけし君に賛成〜。そのほうが探索効率があがるからね」",30);
+		if(play.Event.flag[0]==1) {
+			speak.S("先生「おれは部室に残って頭とやらを探しておく」",30);
+		} 
+		speak.S("みさき"+name+"くん。君はどう思う？君に任せるよ」",30);
+		speak.S("・・・",1000);
 			}
 	@Override
 	void preese() {
 		speak.preese();
 	}
 }
-class Epi4 extends Speak_text{
+class Epi1_2Yes extends Speak_text{
 	@Override
 	public void run() {
 		preese = true;
