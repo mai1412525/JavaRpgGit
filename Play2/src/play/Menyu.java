@@ -5,17 +5,17 @@ public class Menyu {
 	String[] menyu = {"持ち物","ステータス","セーブ","閉じる"};			//1
 	int[] mmenyu = {2,3,0,-1};
 	String[]motiall = {"紙切れ",""};
-	String[] motimono;				//2
+	String[] motimono;			                     //2
 	int[] motialls = {0,1};
 	int[] motimonos;
 	String[] sute = {"琴音","紗月","もどる"};			//3
 	int[] ssute = {0,0,1};
-
+	
 	int flg = -1;			//どのメニューか
 	int sentaku = 0;			//選択肢のカーソル
 	int kiri = 0;
 	int setu = 0;			//説明が開いているかどうか
-
+	
 	String[] getmoti() {
 		int j = 0;
 		int a = 0;
@@ -97,7 +97,7 @@ public class Menyu {
 			sentaku--;
 		}
 	}
-
+	
 	int enter() {
 		if(flg != -1) {
 			if(setu == 0) {
@@ -131,12 +131,12 @@ public class Menyu {
 	int setua() {
 		return setu;
 	}
-
+	
 	void setu() {
 		setu = 1;
 		setumei(getsentakusi()[sentaku]);
 	}
-
+	
 	void setumei(String w) {
 		if(w.equals("紙切れ")) {
 			System.out.println("[パスワードは'mellow']");
