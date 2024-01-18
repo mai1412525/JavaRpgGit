@@ -20,8 +20,8 @@ public class Event extends Thread {
 
 	}
 
+	
 	select select = new select();
-
 	Speak_text oya = new Speak_text();
 	Speak_text OyaEpi = new Speak_text();
 	Speak_text[] Epi =  {new Epi0(), new Epi1Yes() ,new Epi1No(),new Epi1_2(),new Epi1_2Yes()};
