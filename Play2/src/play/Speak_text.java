@@ -4,7 +4,6 @@ public class Speak_text{//親クラス
 	Speak speak = new Speak();
 	static String name;
 
-
 	 public void run() {}
 	 void preese() {}
 	/* public boolean getPreese() {
