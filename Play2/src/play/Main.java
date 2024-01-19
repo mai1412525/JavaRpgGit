@@ -48,7 +48,7 @@ class TestWindow extends JFrame implements KeyListener {
 		
 		// TODO 自動生成されたメソッド・スタブ
 		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード、6がメニュー、７がタイトル
-		i = Event.
+		i = Event.getNumber();
 		System.out.println("今のMain切り替え"+Mkirikae);
 		if(Mkirikae == 0) {
 			sub.dispz();
