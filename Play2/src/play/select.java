@@ -21,9 +21,8 @@ public class select {
     	}*/
     	this.moji_join = moji_join;
     	this.title = title;
-    	this.number = number;
+    	this.number = number;//選択肢マックス
     	dispSelect(0);//選択肢表示
-    	//rp();
     }
 
 	public void dispSelect(int sentaku) {//表示
@@ -48,32 +47,24 @@ public class select {
 
 	}
 
-	void rp() {
-		synchronized(this) {
-			try {
-				wait();
-			} catch (InterruptedException e) {
-		}
-			return;
-		}
-	}
-	synchronized void selectPreese() {
-		notify();
-	}
-	public int gettitleNumber() {
+
+	public int getTitleNumber() {
 		if(finalnumber != 99) {
 			finalnumber = select_number;
 			return finalnumber;
 		}
 		else {
+			
 			return 7;
 		}
 
 	}
-
 	public int getMaxNumber(){
+		//System.out.println("selectきた");
 		return number;
 	}
+
+
 
 
 }

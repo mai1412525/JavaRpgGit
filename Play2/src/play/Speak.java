@@ -2,6 +2,7 @@ package play;
 public class Speak {
 	boolean keyWait = false;
 	boolean key = false;
+	boolean skip = false;
 	public void S(String moji, int speed) {
 
 		String[] strArray = new String[moji.length()];
@@ -23,7 +24,7 @@ public class Speak {
 		rp();
 	}
 		void rp() {
-			if(keyWait==true) {
+			if(keyWait==true && skip == false) {
 				synchronized(this) {
 					try {
 						wait();
@@ -35,5 +36,8 @@ public class Speak {
 		}
 		synchronized void preese() {
 			notify();
+		}
+		public void setskip(boolean skip) {//スキップオンにする
+			this.skip = skip;
 		}
 }

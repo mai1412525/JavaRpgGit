@@ -43,7 +43,8 @@ public class Event extends Thread {
 		Ekirikae = 2;
 		Epi[0].run();
 		Ekirikae = 1;
-		select.setSelect("本当のことをいう,嘘をつく","「「どうしよう...」」",2);
+		select.setSelect("本当のことをいう,嘘をつく","「「どうしよう...」」",1);
+		rp();
 		Ekirikae = 2;
 		if(number == 0) {
 			Epi[1].run();
@@ -55,7 +56,8 @@ public class Event extends Thread {
 			item[0]=1;//部室のカギYes
 		}
 		Ekirikae = 1;
-		select.setSelect("二手に分かれる,二手に分かれない","「「分かれたほういいのかな」」",2);
+		select.setSelect("二手に分かれる,二手に分かれない","「「分かれたほういいのかな」」",1);
+		rp();
 		Ekirikae = 2;
 		if(number == 0) {
 			Epi[4].run();
@@ -81,6 +83,7 @@ public class Event extends Thread {
 			}
 		}
 	}
+	
 	synchronized void no() {
 		notify();
 	}
@@ -89,7 +92,14 @@ public class Event extends Thread {
 		for(int i = 0; i<Epi.length;i++) {
 			Epi[i].preese();
 		}
-
+	}
+	
+	public void skip() {
+		for(int i = 0; i<Epi.length;i++) {
+			Epi[i].skip();
+		}
+		play.Speak_text.speed = 1;
+		
 	}
 	//Select(選択肢)
 	public void setSelectNumber (int num) {
@@ -101,11 +111,11 @@ public class Event extends Thread {
 	public void selectDecision() {
 		number = select.getNumber();
 		//System.out.println("あなたは"+number+"を押しました。");
-		select.selectPreese();
 	}
 	
 	public int getMaxNumber(){
-		return select.getNumber();
+		//System.out.println("イベントきた");
+		return select.getMaxNumber();
 	}
 
 

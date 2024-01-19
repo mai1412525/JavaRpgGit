@@ -6,7 +6,7 @@ public class Title {
 	Speak speak = new Speak();
 	
 	void end() {
-		speak.S("アプリを終了させます",100);
+		speak.S("アプリを終了させます",30);
 		System.exit(0);
 	}
 	void loaddisplay() {

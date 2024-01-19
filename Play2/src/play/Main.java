@@ -19,6 +19,7 @@ class TestWindow extends JFrame implements KeyListener {
 		sub.tekiidou();*/
 		Event.start();
 		sub.syougai();
+		Event.select.setSelect("はじめる,ロード,終わる","ここにタイトル",2);
 	}
 	int Mkirikae = 0;
 	int i = 0;
@@ -49,9 +50,9 @@ class TestWindow extends JFrame implements KeyListener {
 
 		// TODO 自動生成されたメソッド・スタブ
 		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード、6がメニュー、７がタイトル
-
 		m = Event.getMaxNumber();
-		System.out.println("今のMain切り替え"+Mkirikae + "i "  + Event.getMaxNumber());
+		//System.out.println("今のMain切り替え"+Mkirikae + "i "  + Event.getMaxNumber());
+		
 		if(Mkirikae == 0) {
 			sub.dispz();
 		}
@@ -78,30 +79,27 @@ class TestWindow extends JFrame implements KeyListener {
 			}
 			return;
 		}
-
 		if(Mkirikae == 7) {
-			if(tit==false) {
-				Event.select.setSelect("はじめる,ロード,終わる","ここにタイトル",3);
-				tit = true;
-			}
-			int s = Event.select.finalnumber;
-			System.out.println(s);
-			/*if(w == 0) {
+			int w = Event.select.getTitleNumber();
+			if(w == 0) {
 				Event.no();
 			}
-			if(w == 1) {
+			else if(w == 1) {
+				Mkirikae =3;
 				title.loaddisplay();
 				int a = key.key(e);
-				Event.setkirikae(w);
+				Event.setkirikae(a);
 				if(a == 2) {//returnでkirikaeが変更される
 					Event.no();
-					title.load(key);
+					Event.setkey(key);
+					return;
 				}
+			
 			}
-
-
-
-		}*/
+			else if(w == 2) {
+				title.end();
+			}
+		}
 		
 			switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
@@ -153,7 +151,10 @@ class TestWindow extends JFrame implements KeyListener {
 						}
 					}
 					else if(Mkirikae == 1) {
-						i++;
+						if(m>i) {
+							i++;
+						}
+						
 						kaigyou();
 						Event.setSelectNumber(i);
 					}
@@ -162,9 +163,10 @@ class TestWindow extends JFrame implements KeyListener {
 						sub.dispz();
 						menyu.disp();
 					}
-					if(Mkirikae == 7) {
-						i++;
-						System.out.print(i);
+					else if(Mkirikae == 7) {
+						if(i<m) {
+							i++;
+						}
 						kaigyou();
 						Event.setSelectNumber(i);
 					}
@@ -199,10 +201,10 @@ class TestWindow extends JFrame implements KeyListener {
 					break;
 	
 				case KeyEvent.VK_SPACE:
-					System.out.println("alpha");
 					if(Mkirikae == 1) {
 						//System.out.println("選択肢決定押された");
 						Event.selectDecision();
+						Event.no();
 					}
 					else if(Mkirikae == 2) {
 						//System.out.println("会話文決定された");
@@ -240,15 +242,20 @@ class TestWindow extends JFrame implements KeyListener {
 	
 					}
 					else if(Mkirikae == 7) {
-						System.out.println("Title");
-						Event.select.gettitleNumber();
+						Event.select.getTitleNumber();
 						Event.selectDecision();
 					}
+					break;
+					case KeyEvent.VK_ESCAPE:
+						if(Mkirikae == 2) {
+							System.out.print("スキップします");
+							Event.skip();
+						}
 					break;
 			}
 			tek.kiri(Mkirikae);
 		}
-	}
+	
 	void kaigyou() {
 		for(int i=0;i<20;i++) {
 			System.out.println("");
