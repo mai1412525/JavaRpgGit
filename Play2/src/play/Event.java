@@ -104,7 +104,7 @@ public class Event extends Thread {
 		//System.out.println("あなたは"+number+"を押しました。");
 		select.selectPreese();
 	}
-	public int getNumber(){
+	public int getMaxNumber(){
 		return select.getNumber();
 	}
 
