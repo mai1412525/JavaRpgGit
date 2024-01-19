@@ -394,5 +394,56 @@ class PC extends MapMam {
 		}
 	}
 }
+class book extends MapMam {
+	int tate = 19;
+	int yoko = 15;
+	int[][]syougai = new int[tate][yoko];
+	int[] kuromasu = {1,5,2,1,2,2,2,3,2,5,3,1,3,2,3,3,3,4,3,5,
+						7,1,8,1,9,1,10,1,11,1,12,1,
+						5,5,5,6,5,7,5,8,5,9,
+						9,5,10,5,11,5,12,5,13,5,14,5,15,5,16,5,
+						9,9,10,9,11,9,12,9,13,9,14,9,15,9,16,9,
+						5,14,6,14,7,14,8,14,9,14,10,14,11,14,12,14,13,14,14,14,15,14,16,14
+						};
+
+	int[]kuti = {-41,16,17};
+
+	int[]jouhou = {};
+	int[]mituketa = new int [3];			//コピペ
+	int[][]ivent = syougai;			//コピペ
+
+	String name = "[図書室]";
+	MapSyori syori = new MapSyori();			//コピペ
+
+	{
+	}
+	public int[][] map(){				//マップデータ
+		syori.sotowaku(syougai);
+		syori.jouh(syougai,kuromasu,1);
+		syori.kuti(syougai, kuti);
+
+		return syougai;
+	}
+	public int[] getmapjouhou(int id) {
+		syori.mapjouhou(id, jouhou, mituketa);
+		return mituketa;
+	}
+
+	public String getname() {
+		return name;
+	}
+	public int[][] ivent(){
+		return ivent;
+	}
+	public void oru(int ii,int t) {
+		for(int i = 0; i < ivent.length; i++) {
+			for(int j = 0; j < ivent[1].length; j++) {
+				if(ivent[i][j] == ii) {
+					ivent[i][j] = t;
+				}
+			}
+		}
+	}
+}
 
 
