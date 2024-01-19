@@ -44,7 +44,7 @@ public class Event extends Thread {
 		Ekirikae = 2;
 		Epi[0].run();
 		Ekirikae = 1;
-		select.setSelect("本当のことをいう,嘘をつく","「「どうしよう...」」");
+		select.setSelect("本当のことをいう,嘘をつく","「「どうしよう...」」",2);
 		Ekirikae = 2;
 		if(number == 0) {
 			Epi[1].run();
@@ -56,7 +56,7 @@ public class Event extends Thread {
 			item[0]=1;//部室のカギYes
 		}
 		Ekirikae = 1;
-		select.setSelect("二手に分かれる,二手に分かれない","「「分かれたほういいのかな」」");
+		select.setSelect("二手に分かれる,二手に分かれない","「「分かれたほういいのかな」」",2);
 		Ekirikae = 2;
 		if(number == 0) {
 			Epi[4].run();
