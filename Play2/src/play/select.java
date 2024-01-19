@@ -5,9 +5,10 @@ public class select {
 	
 	String[] moji_join;
 	String title;
+	int number;
     int select_number;//Mainで使う用
     int finalnumber=99;//Titleで使うよう
-    public void setSelect(String moji,String title) {//設定
+    public void setSelect(String moji,String title,int number) {//設定
     	String[] moji_Split = moji.split(",");
     	String[] moji_join = new String[moji_Split.length*2];
     	moji_join = new String[moji_Split.length*2];
@@ -20,6 +21,7 @@ public class select {
     	}*/
     	this.moji_join = moji_join;
     	this.title = title;
+	this.number = number;
     	dispSelect(0);//選択肢表示
     	//rp();
     }
@@ -66,6 +68,9 @@ public class select {
 		return 7;
 	}
 		
+	}
+	public int getNumber(){
+		return number;
 	}
 
 
