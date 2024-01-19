@@ -18,7 +18,7 @@ public class Speak {
 			}
 		}
 
-		System.out.println("▼");
+		System.out.println("▼                                                          ");
 		keyWait = true;
 		rp();
 	}

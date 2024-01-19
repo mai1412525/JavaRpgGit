@@ -2,7 +2,7 @@ package play;
 
 
 public class select {
-	
+
 	String[] moji_join;
 	String title;
 	int number;
@@ -21,7 +21,7 @@ public class select {
     	}*/
     	this.moji_join = moji_join;
     	this.title = title;
-	this.number = number;
+    	this.number = number;
     	dispSelect(0);//選択肢表示
     	//rp();
     }
@@ -45,8 +45,9 @@ public class select {
 	public int getNumber() {
 		finalnumber = select_number;
 		return select_number;
-		
+
 	}
+
 	void rp() {
 		synchronized(this) {
 			try {
@@ -60,15 +61,16 @@ public class select {
 		notify();
 	}
 	public int gettitleNumber() {
-	if(finalnumber != 99) {
-		notify();
-		return finalnumber;
+		if(finalnumber != 99) {
+			finalnumber = select_number;
+			return finalnumber;
+		}
+		else {
+			return 7;
+		}
+
 	}
-	else {
-		return 7;
-	}
-		
-	}
+
 	public int getMaxNumber(){
 		return number;
 	}
