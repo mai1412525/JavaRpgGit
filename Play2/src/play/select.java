@@ -69,7 +69,7 @@ public class select {
 	}
 		
 	}
-	public int getNumber(){
+	public int getMaxNumber(){
 		return number;
 	}
 
