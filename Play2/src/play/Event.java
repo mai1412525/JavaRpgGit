@@ -37,6 +37,7 @@ public class Event extends Thread {
 	public void run() {//並列処理
 		Ekirikae = 7;
 		rp();
+		Ekirikae =2;
 		System.out.println("名前を入力してください");
 		Ekirikae = 3;
 		rp();
@@ -110,7 +111,7 @@ public class Event extends Thread {
 
 	public void selectDecision() {
 		number = select.getNumber();
-		//System.out.println("あなたは"+number+"を押しました。");
+		System.out.println("あなたは"+number+"を押しました。");
 	}
 	
 	public int getMaxNumber(){

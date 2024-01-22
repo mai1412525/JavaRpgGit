@@ -10,7 +10,8 @@ public class Title {
 		System.exit(0);
 	}
 	void loaddisplay() {
-		speak.S("セーブしたときに表示されたコードを打ってください", 30);
+		speak.S("開発中", 30);
+		//speak.S("セーブしたときに表示されたコードを打ってください", 30);
 	}
 	void load(Key key) {
 		load = Integer.valueOf(key.getname());

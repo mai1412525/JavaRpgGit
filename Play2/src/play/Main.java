@@ -17,22 +17,19 @@ class TestWindow extends JFrame implements KeyListener {
 		addKeyListener(this);
 		/*sub.syougai();
 		sub.tekiidou();*/
-		Event.start();
 		sub.syougai();
+		Event.start();
 		Event.select.setSelect("はじめる,ロード,終わる","ここにタイトル",2);
 	}
 	int Mkirikae = 0;
 	int i = 0;
 	int m = 0;
-	boolean tit = false;
-	boolean select = false;//選択肢が何回も並列実行をしないようにするため用
 	sub sub = new sub();
 	Key key = new Key();
 	Event Event = new Event();
 	password pass = new password();
 	Menyu menyu = new Menyu();
 	Title title = new Title();
-
 	tek tek = new tek();
 
 
@@ -81,17 +78,19 @@ class TestWindow extends JFrame implements KeyListener {
 		}
 		if(Mkirikae == 7) {
 			int w = Event.select.getTitleNumber();
+			Event.setkirikae(w);
 			if(w == 0) {
 				Event.no();
 			}
 			else if(w == 1) {
 				Mkirikae =3;
 				title.loaddisplay();
-				int a = key.key(e);
-				Event.setkirikae(a);
-				if(a == 2) {//returnでkirikaeが変更される
-					Event.no();
-					Event.setkey(key);
+					int a = key.key(e);
+					Event.setkirikae(a);
+					if(a == 2) {//returnでkirikaeが変更される
+						Event.no();
+						Event.setkey(key);
+				
 					return;
 				}
 			
@@ -242,13 +241,14 @@ class TestWindow extends JFrame implements KeyListener {
 	
 					}
 					else if(Mkirikae == 7) {
-						Event.select.getTitleNumber();
 						Event.selectDecision();
+						Event.select.getTitleNumber();
+						
 					}
 					break;
 					case KeyEvent.VK_ESCAPE:
 						if(Mkirikae == 2) {
-							System.out.print("スキップします");
+							System.out.println("スキップします");
 							Event.skip();
 						}
 					break;
