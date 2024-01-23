@@ -83,7 +83,7 @@ class TestWindow extends JFrame implements KeyListener {
 				Event.no();
 			}
 			else if(w == 1) {
-				Mkirikae =3;
+				Event.setkirikae(3);
 				title.loaddisplay();
 					int a = key.key(e);
 					Event.setkirikae(a);
