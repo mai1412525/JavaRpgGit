@@ -837,23 +837,23 @@ class syorisou{
 			name += "ぼ";
 			break;
 		case "pa":
-			name = name.substring(0,name.length() - 3);
+			name = name.substring(0,name.length() - 2);
 			name += "ぱ";
 			break;
 		case "pi":
-			name = name.substring(0,name.length() - 3);
+			name = name.substring(0,name.length() - 2);
 			name += "ぴ";
 			break;
 		case "pu":
-			name = name.substring(0,name.length() - 3);
+			name = name.substring(0,name.length() - 2);
 			name += "ぷ";
 			break;
 		case "pe":
-			name = name.substring(0,name.length() - 3);
+			name = name.substring(0,name.length() - 2);
 			name += "ぺ";
 			break;
 		case "po":
-			name = name.substring(0,name.length() - 3);
+			name = name.substring(0,name.length() - 2);
 			name += "ぽ";
 			break;
 		case "ja":
