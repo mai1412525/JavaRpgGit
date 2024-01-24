@@ -19,7 +19,7 @@ class TestWindow extends JFrame implements KeyListener {
 		sub.tekiidou();*/
 		sub.syougai();
 		Event.start();
-		Event.select.setSelect("はじめる,ロード,終わる","ここにタイトル",2);
+		Event.select.setSelect("はじめる,ロード,終わる","すくうもの",2);
 	}
 	int Mkirikae = 0;
 	int i = 0;
@@ -112,7 +112,6 @@ class TestWindow extends JFrame implements KeyListener {
 							Mkirikae = 5;
 							Event.setkirikae(Mkirikae);
 						}
-						sub.dispz();
 					}
 					else if(Mkirikae == 1) {
 						if(m > 0) {
@@ -237,8 +236,23 @@ class TestWindow extends JFrame implements KeyListener {
 						if(w != 0 && w != -1) {
 							menyu.disp();
 						}
-	
-	
+					}
+					else if(Mkirikae == 6){
+						int i = menyu.enter();
+						if(i != 0) {
+							sub.dispz();
+						}
+						if(i == 1) {
+							Mkirikae = 6;
+						}
+						else if(i == -1) {
+							Mkirikae = 0;
+							sub.dispz();
+						}
+						if(i != 0 && i != -1) {
+							menyu.disp();
+						}
+						Event.setkirikae(Mkirikae);
 					}
 					else if(Mkirikae == 7) {
 						Event.selectDecision();

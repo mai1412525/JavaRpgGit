@@ -16,6 +16,7 @@ class Map55 extends MapMam{
 	int[]mituketa = new int [3];			//コピペ
 	int[][]ivent = new int[tate][yoko];			//コピペ
 	int[]tobira = {2,29,3,29};
+	int[]ikidomari = {0,3,0,4,0,11,0,12,0,16,0,17,0,24,0,25};
 
 	//boolean han = true;			//コピペ
 	String name = "[廊下]";
@@ -23,6 +24,7 @@ class Map55 extends MapMam{
 
 	{			//マップイベント
 		syori.jouh(ivent, tobira, 1);
+		syori.jouh(ivent,ikidomari,-1);
 	}
 	public int[][] map(){			//まっぷでーた
 		syori.sotowaku(syougai);	//さいしょに
