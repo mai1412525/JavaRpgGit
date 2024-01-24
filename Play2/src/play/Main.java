@@ -24,6 +24,7 @@ class TestWindow extends JFrame implements KeyListener {
 	int Mkirikae = 0;
 	int i = 0;
 	int m = 0;
+	MainEvent main = new MainEvent();
 	sub sub = new sub();
 	Key key = new Key();
 	Event Event = new Event();
