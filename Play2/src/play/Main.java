@@ -76,7 +76,7 @@ class TestWindow extends JFrame implements KeyListener {
 			}
 			return;
 		}
-		if(Mkirikae == 7) {
+		if(Mkirikae == 7) { //タイトル表示
 			int w = Event.select.getTitleNumber();
 			Event.setkirikae(w);
 			if(w == 0) {

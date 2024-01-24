@@ -198,9 +198,48 @@ class Epi1_2 extends Speak_text{
 class Epi1_2Yes extends Speak_text{
 	@Override
 	public void run() {
-		preese = true;
-		speak.S("Epi4", speed);
-		speak.S("とりあえず進もう", speed);
+		speed = 30;
+		speak.setskip(false);
+		speak.S(name+"「二手に分かれよう。」",speed);
+		speak.S("みさき「…:( •ᾥ•):、それじゃぁ、10分前にここに集合ね」",speed);
+		speak.S("みさき「わたしと"+name+"は理科室にいくから、」",speed);
+		speak.S(name+"「ぼくの意見は、、」",speed);
+		speak.S("ゆき「わたしも"+name+"と行動したい...な」",speed);
+		speak.S("みさき「じゃあここはオカルトらしくダイスで決めようか」",speed);
+		speak.S("ゆき「いいよ…わたし奇数選ぶ」",speed);
+		speak.S("みさき「じゃあ私は偶数のほうか。外れても恨みっこなしだよー」",speed);
+		speak.S("ゆき「うん…」",speed);
+		speak.S("サイコロは「４」を上にした。",speed);
+		speak.S("みさき「よしっ！！」",speed);
+		speak.S("ゆき「…」",speed);
+		speak.S("みさき「じゃあたけしとゆきはプールのほうをヨロシク。じゃーねー」",speed);
+		speak.S("ゆき「...うぅ…ほらっ、たけし君いくよー」",speed);
+		speak.S("たけし「はやくおわってくれぇ」",speed);
+		
+			}
+	@Override
+	void preese() {
+		speak.preese();
+	}
+	 void skip(){
+		 speak.setskip(true);
+	 }
+}
+class Epi1_2No extends Speak_text{
+	@Override
+	public void run() {
+		speed = 30;
+		speak.setskip(false);
+		speak.S(name+"「一緒に行動した方がいいと思う」",speed);
+		speak.S("みさき「やっぱりそう思うよね！わかっておりますな」",speed);
+		speak.S("ゆき"+name+"がそういうなら…」",speed);
+		speak.S("たけし「調査してこんなところはやくでようぜ…」",speed);
+		speak.S("[理科室前]",50);
+		speak.S("ゆき「…」",speed);
+		speak.S("みさき「人体模型があるのは準備室だよー」",speed);
+		speak.S("たけし「帰りたい。」",speed);
+		speak.S(name+"「まぁまぁ、すぐだからがんばろうな」",speed);
+		speak.S("みさき「それじゃあ、いきますか。」",speed);
 			}
 	@Override
 	void preese() {

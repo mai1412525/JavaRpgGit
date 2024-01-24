@@ -21,7 +21,7 @@ public class select {
     	}*/
     	this.moji_join = moji_join;
     	this.title = title;
-    	this.number = number;//選択肢マックス
+    	this.number = number;//選択肢最大値
     	dispSelect(0);//選択肢表示
     }
 
@@ -54,7 +54,9 @@ public class select {
 			return finalnumber;
 		}
 		else {
-			
+			if(finalnumber != 99) {
+				return finalnumber;
+			}
 			return 7;
 		}
 
