@@ -2,6 +2,9 @@ package play;
 
 import java.util.Random;
 
+
+import Kadaikennkyu.MapMam;
+
 class Map556 extends MapMam{		//サンプル
 	Random rand = new Random();
 	int tate = 10;
@@ -51,5 +54,13 @@ class Map556 extends MapMam{		//サンプル
 				}
 			}
 		}
+	}
+}
+class rikashitu extends MapMam{
+	int tate = 42;
+	int yoko = 42;
+	int[][]syougai = new int[tate][yoko];
+	int[]kuromasu = {
+
 	}
 }
