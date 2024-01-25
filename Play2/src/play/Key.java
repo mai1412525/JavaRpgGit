@@ -192,8 +192,11 @@ public class Key {
 			syorisou sub = new syorisou();
 			//System.out.println("w = " + w);
 			if(name.endsWith("a") == true || name.endsWith("i") == true|| name.endsWith("u") == true|| name.endsWith("e") == true|| name.endsWith("o") == true) {
+				if(name.length() >3) {
+					name = sub.tu(name,4);
+				}
 				if(name.length() > 2) {
-					name = sub.tu(name);
+					name = sub.tu(name,3);
 					name = sub.sanmoji(name);
 				}
 				if(name.length() > 1) {
@@ -203,14 +206,16 @@ public class Key {
 			}
 			String w = null;
 			if(name.length() > 1) {
-				w = name.substring(name.length() - 2,name.length() - 1);
+				w = name.substring(name.length() - 2,name.length());
 			}
 			if(name.length() > 1) {
 				if(name.substring(name.length()- 2).equals("nn")) {
 					name = sub.nn(name);
 				}
-				else if(w.equals("n")){
-
+				else if(w.equals("ny")) {
+					
+				}
+				else if(w.substring(w.length() - 2,w.length() - 1).equals("n")){
 					name = sub.n(name);
 				}
 			}
@@ -282,11 +287,11 @@ class syorisou{
 		}
 		return name;
 	}
-	String tu(String name) {
+	String tu(String name,int j) {
 		if(han(name) == false) {
-		if(name.charAt(name.length() - 3) == name.charAt(name.length() - 2)) {
-			String w = name.substring(name.length() - 2);
-			name = name.substring(0,name.length() - 3);
+		if(name.charAt(name.length() - j) == name.charAt(name.length() - (j - 1))) {
+			String w = name.substring(name.length() - (j - 1));
+			name = name.substring(0,name.length() - j);
 			name += "っ";
 			name += w;
 		}

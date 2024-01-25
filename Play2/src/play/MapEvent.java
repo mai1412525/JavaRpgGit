@@ -27,6 +27,10 @@ public class MapEvent {
 				return 1;
 			}
 		}
+		if(tag == -1) {
+			System.out.println("今は行く必要はないだろう▼");
+			return 999;
+		}
 		return 999;
 	}
 	int pass(int map,int tag,String name) {

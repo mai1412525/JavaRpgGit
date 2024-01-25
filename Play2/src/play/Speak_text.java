@@ -96,7 +96,6 @@ class Epi0 extends Speak_text{
 		speak.S("たけし「こ、ここんばんゎ..ぁ...」",speed);
 		speak.S("先生「何してるんだ？」",speed);
 		speak.S("一同：「うわぁ！」",speed);
-		speak.S(name+"「「どうしよう？」」",speed);
 		speak.S("・・・",200); 
 			}
 	@Override

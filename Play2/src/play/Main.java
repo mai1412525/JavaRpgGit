@@ -19,11 +19,12 @@ class TestWindow extends JFrame implements KeyListener {
 		sub.tekiidou();*/
 		sub.syougai();
 		Event.start();
-		Event.select.setSelect("はじめる,ロード,終わる","ここにタイトル",2);
+		Event.select.setSelect("はじめる,ロード,終わる","すくうもの",2);
 	}
 	int Mkirikae = 0;
 	int i = 0;
 	int m = 0;
+	MainEvent main = new MainEvent();
 	sub sub = new sub();
 	Key key = new Key();
 	Event Event = new Event();
@@ -49,7 +50,7 @@ class TestWindow extends JFrame implements KeyListener {
 		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード、6がメニュー、７がタイトル
 		m = Event.getMaxNumber();
 		//System.out.println("今のMain切り替え"+Mkirikae + "i "  + Event.getMaxNumber());
-		
+
 		if(Mkirikae == 0) {
 			sub.dispz();
 		}
@@ -90,16 +91,16 @@ class TestWindow extends JFrame implements KeyListener {
 					if(a == 2) {//returnでkirikaeが変更される
 						Event.no();
 						Event.setkey(key);
-				
+
 					return;
 				}
-			
+
 			}
 			else if(w == 2) {
 				title.end();
 			}
 		}
-		
+
 			switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
 					if(Mkirikae == 0) {
@@ -112,7 +113,6 @@ class TestWindow extends JFrame implements KeyListener {
 							Mkirikae = 5;
 							Event.setkirikae(Mkirikae);
 						}
-						sub.dispz();
 					}
 					else if(Mkirikae == 1) {
 						if(m > 0) {
@@ -120,14 +120,14 @@ class TestWindow extends JFrame implements KeyListener {
 						}
 						kaigyou();
 						Event.setSelectNumber(i);
-	
+
 					}
 					else if(Mkirikae == 6) {
 						menyu.msent();
 						sub.dispz();
 						menyu.disp();
 					}
-	
+
 					else if(Mkirikae == 7) {
 						if(i > 0) {
 							i--;
@@ -136,7 +136,7 @@ class TestWindow extends JFrame implements KeyListener {
 						Event.setSelectNumber(i);
 					}
 					break;
-	
+
 				case KeyEvent.VK_DOWN:
 					if(Mkirikae == 0) {
 						int w = sub.idou(2);
@@ -153,7 +153,7 @@ class TestWindow extends JFrame implements KeyListener {
 						if(m>i) {
 							i++;
 						}
-						
+
 						kaigyou();
 						Event.setSelectNumber(i);
 					}
@@ -170,7 +170,7 @@ class TestWindow extends JFrame implements KeyListener {
 						Event.setSelectNumber(i);
 					}
 					break;
-	
+
 				case KeyEvent.VK_RIGHT:
 					if(Mkirikae == 0) {
 						int w = sub.idou(3);
@@ -184,7 +184,7 @@ class TestWindow extends JFrame implements KeyListener {
 						}
 					}
 					break;
-	
+
 				case KeyEvent.VK_LEFT:
 					if(Mkirikae == 0) {
 						int w = sub.idou(1);
@@ -198,7 +198,7 @@ class TestWindow extends JFrame implements KeyListener {
 						}
 					}
 					break;
-	
+
 				case KeyEvent.VK_SPACE:
 					if(Mkirikae == 1) {
 						//System.out.println("選択肢決定押された");
@@ -237,13 +237,28 @@ class TestWindow extends JFrame implements KeyListener {
 						if(w != 0 && w != -1) {
 							menyu.disp();
 						}
-	
-	
+					}
+					else if(Mkirikae == 6){
+						int i = menyu.enter();
+						if(i != 0) {
+							sub.dispz();
+						}
+						if(i == 1) {
+							Mkirikae = 6;
+						}
+						else if(i == -1) {
+							Mkirikae = 0;
+							sub.dispz();
+						}
+						if(i != 0 && i != -1) {
+							menyu.disp();
+						}
+						Event.setkirikae(Mkirikae);
 					}
 					else if(Mkirikae == 7) {
 						Event.selectDecision();
 						Event.select.getTitleNumber();
-						
+
 					}
 					break;
 					case KeyEvent.VK_ESCAPE:
@@ -255,7 +270,7 @@ class TestWindow extends JFrame implements KeyListener {
 			}
 			tek.kiri(Mkirikae);
 		}
-	
+
 	void kaigyou() {
 		for(int i=0;i<20;i++) {
 			System.out.println("");
