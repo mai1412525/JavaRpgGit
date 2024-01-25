@@ -13,7 +13,7 @@ class mot{
 public class MapEvent {
 	mot moti = new mot();
 	int ev(int map,int tag){
-		if(map == 0) {
+		/*if(map == 0) {
 			if(tag == 1) {
 				System.out.println("鍵がかかっている");
 				System.out.println("パスワードを入力してください");
@@ -25,6 +25,18 @@ public class MapEvent {
 				System.out.println("紙切れを拾った▼");
 				moti.moti(0,1);
 				return 1;
+			}
+		}*/
+		if(map == 0) {
+			if(tag == 1) {
+				System.out.println("人体模型だ");
+				System.out.println("’泥人形の頭’を手に入れた▼");
+				moti.moti(1,1);
+				return 2;
+			}
+			if(tag == 2) {
+				System.out.println("ただの人体模型だ▼");
+				return 2;
 			}
 		}
 		if(tag == -1) {

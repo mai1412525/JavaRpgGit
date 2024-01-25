@@ -18,9 +18,8 @@ public class sub {
 	static String[][]ui;
 	static int[][]ivent;
 
-	MapMam[] mapman = {new Map55(),new Map56(),new Kyousitu1(),new Kyousitu2()};
+	MapMam[] mapman = {new rikajunbishitu()};
 
-	Map56 mapma = new Map56();
 	
 	MapEvent event = new MapEvent();
 	MapEventUi evui = new MapEventUi();
@@ -33,7 +32,7 @@ public class sub {
 	int timez = 3;			//敵がマップ移動する回数　time = timez;
 	int time = -1;
 	String[] uiui = {"口","田","木","机","像","◆","汎"};
-	String[] iventui = {"扉"};
+	String[] iventui = {"扉","人","模"};
 
 
 	
@@ -64,11 +63,6 @@ static int jikiy = 1,jikix = 1;
 				}
 				if(tekiy == n && tekix == j) {
 					ui[n][j] = "敵";
-				}
-				if(map == 1) {
-					if(mapma.getana()[n][j] == 1) {
-						ui[n][j] = "〇";
-					}
 				}
 				if(ivent[n][j] != 0) {
 					int w = evui.EventUi(map,ivent[n][j]);
@@ -169,14 +163,7 @@ static int jikiy = 1,jikix = 1;
 					}
 				}
 			}
-			if(map == 1) {
-				if(mapma.getana()[tekiy][tekix] == 1){
-					tekiy = -1;
-					tekix = -1;
-					System.out.println("敵が穴に落ちた");
-				}
-			}
-			else if(jikiy == tekiy && jikix == tekix) {
+			if(jikiy == tekiy && jikix == tekix) {
 				dispz();
 				System.out.println("GG");
 				System.exit(0);
@@ -248,7 +235,7 @@ static int jikiy = 1,jikix = 1;
 			iv = ivent[jikiya][jikixa];
 			int w = event.ev(map,ivent[jikiya][jikixa]);
 			if(w != 999) {
-				mapman[map].oru(w,0);
+				mapman[map].oru(iv,w);
 				ivent = mapman[map].ivent();
 			}
 			if(w == 998) {

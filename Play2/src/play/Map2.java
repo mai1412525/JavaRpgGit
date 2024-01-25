@@ -55,18 +55,25 @@ class Map556 extends MapMam{		//サンプル
 }
 class rikajunbishitu extends MapMam{
 	int tate = 14;
-	int yoko = 13;
+	int yoko = 15;
 	int[][]syougai = new int[tate][yoko];
 	int[]kuromasu = {3,3,4,3,5,3,6,3,7,3,8,3,9,3,4,5,4,6,4,7,4,8,4,9,3,11,4,11,5,11,6,11,7,11,8,11,9,11,7,6,7,7,7,8,8,6,8,7,8,8,
 			9,6,9,7,9,8,11,2,11,3,12,2,12,3,11,11,11,12,12,11,12,12};
-	int[]kuti = {-31,1,2,-32,4,5};
+	int[]kuti = {-31,6,7,8};
 	int[]jouhou = {};
 
 	int[]mituketa = new int[3];
 	int[][]ivent = new int[tate][yoko];
+	int[]ikidomari = {13,6,13,7,13,8};
+	int[]mokei = {1,13};
 
 	String name = "理科室準備室";
 	MapSyori syori = new MapSyori();
+	
+	{
+		syori.jouh(ivent,ikidomari,-1);
+		syori.jouh(ivent,mokei,1);
+	}
 
 	public int[][] map(){
 		syori.sotowaku(syougai);

@@ -4,7 +4,7 @@ public class Menyu {
 	mot moti = new mot();
 	String[] menyu = {"持ち物","ステータス","セーブ","閉じる"};			//1
 	int[] mmenyu = {2,3,0,-1};
-	String[]motiall = {"紙切れ",""};
+	String[]motiall = {"","泥人形の頭"};
 	String[] motimono;			                     //2
 	int[] motialls = {0,1};
 	int[] motimonos;
@@ -27,13 +27,13 @@ public class Menyu {
 			}
 		}
 		motimono = new String[a + 1];
-		for(int i = 0; i < momoti.length - 1; i++) {
+		for(int i = 0; i < momoti.length; i++) {
 			if(momoti[i] == 1) {
 				motimono[j] = motiall[i];
 				j++;
 			}
 		}
-		motimono[j] = "とじる";
+		motimono[motimono.length - 1] = "とじる";
 		return motimono;
 	}
 	int[] getmotis() {
@@ -138,9 +138,8 @@ public class Menyu {
 	}
 	
 	void setumei(String w) {
-		if(w.equals("紙切れ")) {
-			System.out.println("[パスワードは'mellow']");
-			System.out.println("と書かれている▼");
+		if(w.equals("泥人形の頭")) {
+			System.out.println("不気味な顔をしている▼");
 		}
 		else if(w == "琴音") {
 			System.out.println("なんでこんなとこに来ちゃったんだろう▼");
