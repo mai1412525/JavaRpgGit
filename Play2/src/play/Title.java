@@ -2,6 +2,7 @@ package play;
 
 
 public class Title {
+	Speak speak = new Speak();
 	int load = 0;
 	
 	void end() {
@@ -10,12 +11,17 @@ public class Title {
 	}
 	void loaddisplay() {
 		System.out.println("ロードしたときに表示されたコードを入力してください。↓");
+		
 		//speak.S("セーブしたときに表示されたコードを打ってください", 30);
+		
 	}
 	void load(Key key) {
 		load = Integer.valueOf(key.getname());
 		System.out.println("load");
 		  
+	}
+	void no() {
+		speak.preese();
 	}
 	
 

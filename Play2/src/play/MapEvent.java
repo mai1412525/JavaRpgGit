@@ -32,6 +32,7 @@ public class MapEvent {
 				System.out.println("人体模型だ");
 				System.out.println("’泥人形の頭’を手に入れた▼");
 				moti.moti(1,1);
+				MainEvent.item[1] = 1;
 				return 2;
 			}
 			if(tag == 2) {

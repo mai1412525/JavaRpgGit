@@ -1,24 +1,12 @@
 package play;
 
 public class Event extends Thread {
-	
+
 	String name;
 	int number=99;//選択肢の番号を一時保存
-	String[] flag2 = new String[10];//フラグ管理
 
 	int Ekirikae=0;//kirikae(モード)の変数管理
-	static int[] flag = new int[8];//フラグ管理
-	static int[] item =  new int[15];//アイテム管理
 
-	Event(){//コンストラクタ(ここでEventフラグをすべて0にする)
-		for(int i=0;i<flag.length;i++) {
-			flag[i]= 0;
-		}
-		for(int i=0;i<item.length;i++) {
-			item[i]= 0;
-		}
-
-	}
 
 	Title title = new Title();
 	select select = new select();
@@ -49,28 +37,30 @@ public class Event extends Thread {
 		Ekirikae = 2;
 		if(number == 0) {
 			Epi[1].run();
-			flag[0] = 1;//教官問い掛けYes
+			MainEvent.flag[0] = 1;//教官問い掛けYes
 		}
 		else if(number == 1) {
 			Epi[2].run();
-			flag[0] = 0;//教官問い掛けNo
-			item[0]=1;//部室のカギYes
+			MainEvent.flag[0] = 0;//教官問い掛けNo
+			MainEvent.item[0]=1;//部室のカギYes
 		}
+		Epi[3].run();
 		Ekirikae = 1;
 		select.setSelect("二手に分かれる,二手に分かれない","「「分かれたほういいのかな」」//(十字キーで選択肢変更、スペースキーで決定)",1);
 		rp();
 		Ekirikae = 2;
+		
 		if(number == 0) {
 			Epi[4].run();
-			flag[1] = 1;//二手に分かれるYes
+			MainEvent.flag[1] = 1;//二手に分かれるYes
 		}
 		else if(number == 1) {
 			Epi[5].run();
-			flag[0] = 0;//二手に分かれないNo
-			item[0]=1;//部室のカギYes
+			MainEvent.flag[0] = 0;//二手に分かれないNo
+			MainEvent.item[0]=1;//部室のカギYes
 		}
 		Ekirikae = 0;
-		    
+
 
 	}
 
@@ -83,7 +73,7 @@ public class Event extends Thread {
 			}
 		}
 	}
-	
+
 	synchronized void no() {
 		notify();
 	}
@@ -93,13 +83,13 @@ public class Event extends Thread {
 			Epi[i].preese();
 		}
 	}
-	
+
 	public void skip() {
 		for(int i = 0; i<Epi.length;i++) {
 			Epi[i].skip();
 		}
 		play.Speak_text.speed = 1;
-		
+
 	}
 	//Select(選択肢)
 	public void setSelectNumber (int num) {
@@ -112,7 +102,7 @@ public class Event extends Thread {
 		number = select.getNumber();
 		//System.out.println("あなたは"+number+"を押しました。");
 	}
-	
+
 	public int getMaxNumber(){
 		//System.out.println("イベントきた");
 		return select.getMaxNumber();
@@ -123,9 +113,9 @@ public class Event extends Thread {
 	void setkey(Key key) {
 		OyaEpi.setname(key.getname());
 	}
-	
+
 	public void setLoad(int[] flag , int[] item) {
-		
+
 	}
 
 }

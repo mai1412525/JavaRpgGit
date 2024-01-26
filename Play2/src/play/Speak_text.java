@@ -3,7 +3,7 @@ public class Speak_text{//親クラス
 	boolean preese;
 	Speak speak = new Speak();
 	static String name;
-	static int speed;
+	static int speed;//スピードを変える
 	 public void run() {}
 	 void preese() {}
 	 void setname(String name) {
@@ -19,7 +19,7 @@ class Epi0 extends Speak_text{
 	public void run() {
 		speed = 30;
 		speak.setskip(false);
-		speak.S("",speed);
+		//speak.S("",speed);
 		speak.S("Spaceキーを押すと次の会話に進みます。", speed);
 		speak.S("女子生徒A「なんか最近怖いよねー」", speed);
 		speak.S("女子生徒B「なにがー？」", speed);
@@ -96,7 +96,7 @@ class Epi0 extends Speak_text{
 		speak.S("たけし「こ、ここんばんゎ..ぁ...」",speed);
 		speak.S("先生「何してるんだ？」",speed);
 		speak.S("一同：「うわぁ！」",speed);
-		speak.S("・・・",200); 
+		speak.S("・・・",200);
 			}
 	@Override
 	void preese() {
@@ -168,7 +168,7 @@ class Epi1_2 extends Speak_text{
 		speed = 30;
 		speak.setskip(false);
 		speak.S("[オカ研部室]",speed);
-		if(play.Event.flag[0]==1) {
+		if(MainEvent.flag[0]==1) {
 			speak.S(name+"「「まさか先生がついてくるとはね…」」",speed);
 			speak.S("先生「それでどうするんだ？",speed);
 		}
@@ -180,7 +180,7 @@ class Epi1_2 extends Speak_text{
 		speak.S("たけし「二手に分かれる？ほ、ほら、そのほうが早く解決して帰れるじゃん？」",speed);
 		speak.S("みさき「わたしは反対かなぁ。なぜならすべての七不思議を見たいからね！！」",speed);
 		speak.S("ゆき「わたしはたけし君に賛成〜。そのほうが探索効率があがるからね」",speed);
-		if(play.Event.flag[0]==1) {
+		if(MainEvent.flag[0]==1) {
 			speak.S("先生「おれは部室に残って頭とやらを探しておく」",speed);
 		}
 		speak.S("みさき"+name+"くん。君はどう思う？君に任せるよ」",speed);
@@ -214,7 +214,7 @@ class Epi1_2Yes extends Speak_text{
 		speak.S("みさき「じゃあたけしとゆきはプールのほうをヨロシク。じゃーねー」",speed);
 		speak.S("ゆき「...うぅ…ほらっ、たけし君いくよー」",speed);
 		speak.S("たけし「はやくおわってくれぇ」",speed);
-		
+
 			}
 	@Override
 	void preese() {

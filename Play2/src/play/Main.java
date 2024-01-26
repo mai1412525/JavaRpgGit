@@ -55,6 +55,7 @@ class TestWindow extends JFrame implements KeyListener {
 			sub.dispz();
 		}
 		if(Mkirikae == 5) {
+			title.no();
 			int w = pass.key(e);
 			sub.dispz();
 			System.out.println("鍵がかかっている");
@@ -65,6 +66,7 @@ class TestWindow extends JFrame implements KeyListener {
 				Mkirikae = 4;
 				Event.setkirikae(Mkirikae);
 				pass.reset();
+				
 			}
 			return;
 		}
@@ -84,16 +86,19 @@ class TestWindow extends JFrame implements KeyListener {
 				Event.no();
 			}
 			else if(w == 1) {
-				Event.setkirikae(3);
+				Event.setkirikae(5);
 				title.loaddisplay();
+				
 					int a = key.key(e);
 					Event.setkirikae(a);
-					if(a == 2) {//returnでkirikaeが変更される
-						Event.no();
+					System.out.print(a);    
+					if(a == 3) {//returnでkirikaeが変更される
+						System.out.println("ロード成功？");
+						//Event.no();
 						Event.setkey(key);
-
-					return;
+						pass.reset();
 				}
+					return;
 
 			}
 			else if(w == 2) {
@@ -258,6 +263,7 @@ class TestWindow extends JFrame implements KeyListener {
 					else if(Mkirikae == 7) {
 						Event.selectDecision();
 						Event.select.getTitleNumber();
+						
 
 					}
 					break;
