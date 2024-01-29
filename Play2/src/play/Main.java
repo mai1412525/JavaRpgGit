@@ -50,9 +50,11 @@ class TestWindow extends JFrame implements KeyListener {
 		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード、6がメニュー、７がタイトル
 		m = Event.getMaxNumber();
 		//System.out.println("今のMain切り替え"+Mkirikae + "i "  + Event.getMaxNumber());
-		if(MainEvent.item[1]==1) {
+		if(MainEvent.item[1]==1 && MainEvent.epiSave[0]==0) {//Episodeここでアイテムフラグ検知
 			Event.no();
+			MainEvent.epiSave[0]=1;
 		}
+		
 		if(Mkirikae == 0) {
 			sub.dispz();
 		}

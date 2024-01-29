@@ -56,13 +56,16 @@ public class Event extends Thread {
 		}
 		else if(number == 1) {
 			Epi[5].run();
-			MainEvent.flag[0] = 0;//二手に分かれないNo
+			MainEvent.flag[1] = 0;//二手に分かれないNo
 			MainEvent.item[0]=1;//部室のカギYes
 		}
 		Ekirikae = 0;
 		rp(); 
 		Ekirikae = 2;
-		Epi[1].run();
+		if(MainEvent.flag[1]==1) {
+			
+		}
+		
 
 	}
 
