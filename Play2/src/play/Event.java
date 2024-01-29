@@ -60,7 +60,9 @@ public class Event extends Thread {
 			MainEvent.item[0]=1;//部室のカギYes
 		}
 		Ekirikae = 0;
-
+		rp(); 
+		Ekirikae = 2;
+		Epi[1].run();
 
 	}
 
@@ -119,5 +121,6 @@ public class Event extends Thread {
 	}
 
 }
+
 
 

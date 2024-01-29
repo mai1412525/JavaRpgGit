@@ -50,12 +50,13 @@ class TestWindow extends JFrame implements KeyListener {
 		Mkirikae = Event.getEvent();//0がマップ、1が選択肢、2が会話文、3が名前入力、4が調べる、5がパスワード、6がメニュー、７がタイトル
 		m = Event.getMaxNumber();
 		//System.out.println("今のMain切り替え"+Mkirikae + "i "  + Event.getMaxNumber());
-
+		if(MainEvent.item[1]==1) {
+			Event.no();
+		}
 		if(Mkirikae == 0) {
 			sub.dispz();
 		}
 		if(Mkirikae == 5) {
-			title.no();
 			int w = pass.key(e);
 			sub.dispz();
 			System.out.println("鍵がかかっている");
@@ -275,6 +276,8 @@ class TestWindow extends JFrame implements KeyListener {
 					break;
 			}
 			tek.kiri(Mkirikae);
+			System.out.println(Mkirikae);
+			System.out.println(Event.getEvent());
 		}
 
 	void kaigyou() {

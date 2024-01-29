@@ -22,6 +22,8 @@ public class Speak {
 		System.out.println("▼                                                          ");
 		keyWait = true;
 		rp();
+		
+		
 	}
 		void rp() {
 			if(keyWait==true && skip == false) {
