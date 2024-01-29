@@ -90,7 +90,6 @@ public class Event extends Thread {
 		for(int i = 0; i<Epi.length;i++) {
 			Epi[i].skip();
 		}
-		play.Speak_text.speed = 1;
 
 	}
 	//Select(選択肢)

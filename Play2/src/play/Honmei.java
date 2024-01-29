@@ -3,9 +3,13 @@ package play;
 public class Honmei {
 
 	public static void main(String[] args) {
+
+		
 		// TODO 自動生成されたメソッド・スタブ
 		TestWindow gw = new TestWindow("テストウィンドウ",0,0);
 		gw.setVisible(true);  
+		
+		
 		
 		//speak.Speak();
 		/*sub sub = new sub();

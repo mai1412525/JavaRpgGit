@@ -276,8 +276,8 @@ class TestWindow extends JFrame implements KeyListener {
 					break;
 			}
 			tek.kiri(Mkirikae);
-			System.out.println(Mkirikae);
-			System.out.println(Event.getEvent());
+			//System.out.println(Mkirikae);
+			//System.out.println(Event.getEvent());
 		}
 
 	void kaigyou() {

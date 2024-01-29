@@ -12,6 +12,9 @@ public class Speak {
 		for(int i=0;i<strArray.length;i++) {
 			System.out.print(strArray[i]);
 			try {
+				if(skip ==  true) {
+					speed = 1;
+				}
 				Thread.sleep(speed);
 				keyWait =  false;
 			// speed間だけ処理を止める
@@ -22,8 +25,8 @@ public class Speak {
 		System.out.println("▼                                                          ");
 		keyWait = true;
 		rp();
-		
-		
+
+
 	}
 		void rp() {
 			if(keyWait==true && skip == false) {
@@ -33,7 +36,7 @@ public class Speak {
 					} catch (InterruptedException e){
 					}
 					return;
-				}            
+				}
 			}
 		}
 		synchronized void preese() {
