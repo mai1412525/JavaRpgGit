@@ -49,7 +49,6 @@ public class Event extends Thread {
 		select.setSelect("二手に分かれる,二手に分かれない","「「分かれたほういいのかな」」//(十字キーで選択肢変更、スペースキーで決定)",1);
 		rp();
 		Ekirikae = 2;
-		
 		if(number == 0) {
 			Epi[4].run();
 			MainEvent.flag[1] = 1;//二手に分かれるYes
@@ -60,12 +59,13 @@ public class Event extends Thread {
 			MainEvent.item[0]=1;//部室のカギYes
 		}
 		Ekirikae = 0;
-		rp(); 
+		rp();
 		Ekirikae = 2;
+		Epi[0].run();
 		if(MainEvent.flag[1]==1) {
-			
+
 		}
-		
+
 
 	}
 

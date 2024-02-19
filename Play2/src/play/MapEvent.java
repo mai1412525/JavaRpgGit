@@ -12,6 +12,7 @@ class mot{
 }
 public class MapEvent {
 	mot moti = new mot();
+	static mojiokuri moji = new mojiokuri();
 	int ev(int map,int tag){
 		/*if(map == 0) {
 			if(tag == 1) {
@@ -29,8 +30,8 @@ public class MapEvent {
 		}*/
 		if(map == 0) {
 			if(tag == 1) {
-				System.out.println("人体模型だ");
-				System.out.println("’泥人形の頭’を手に入れた▼");
+				moji.s("人体模型だ");
+				moji.s("'泥人形の頭'を手に入れた");
 				moti.moti(1,1);
 				MainEvent.item[1] = 1;
 				return 2;
@@ -60,5 +61,8 @@ public class MapEvent {
 			}
 		}
 		return 999;
+	}
+	void presse() {
+		moji.presse();
 	}
 }
